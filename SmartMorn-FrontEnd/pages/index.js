@@ -1,10 +1,10 @@
 import React,{ Component } from 'react';
-import { bindActionCreators } from 'redux';
-import connect from '../store/connect';
+//import { bindActionCreators } from 'redux';
+//import connect from '../store/connect';
 import Link from 'next/link';
 import Layout from '../components/Layout.js';
 //import { setLanguage } from '../store/store';
-import { actions as appActions } from '../store/reducers';
+//import { actions as appActions } from '../store/reducers';
 const PostLink = (props) => (
 	<li>
 		<Link as={`/p/${props.id}`} href={`/post?title=${props.title}`}>
@@ -18,7 +18,7 @@ class Index extends Component {
 
 	render() {
 	  return (
-			<Provider store={store}>
+				
 				<Layout title="หน้าเเรกนะจ๊ะ">
 					<h1>My Blog</h1>
 					<button>TH</button>
@@ -29,22 +29,23 @@ class Index extends Component {
 						<PostLink id="deploy-nextjs" title="Deploy apps with Zeit"/>
 					</ul>
 				</Layout>
-			</Provider>
+
 	  )
 	}
 }
 
+export default Index;
 //export default connect(mapStateToProps,mapDispatchToProps)(Index);
-// @connect(
-//   state => ({
-// 		isFirstLoad: false,
-//   }),
-//   { ...appActions }
-// )(Index)
-const mapStateToProps = (state) => ({
-	lang: state.lang
-})
-const mapDispatchToProps = dispatch => ({
-	setLanguage: bindActionCreators(setLanguage, dispatch)
-})
-export default connect(mapStateToProps,mapDispatchToProps)(Index);
+// // @connect(
+// //   state => ({
+// // 		isFirstLoad: false,
+// //   }),
+// //   { ...appActions }
+// // )(Index)
+// const mapStateToProps = (state) => ({
+// 	lang: state.lang
+// })
+// const mapDispatchToProps = dispatch => ({
+// 	setLanguage: bindActionCreators(setLanguage, dispatch)
+// })
+//export default connect(mapStateToProps,mapDispatchToProps)(Index);
