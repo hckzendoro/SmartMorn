@@ -12,16 +12,16 @@ export default class MyDocument extends Document {
         const main = sheet.collectStyles(<Main />);
         const styleTags = sheet.getStyleElement();
         return (
-          <html lang="th">
-            <Head>
-              <title>My Pages</title>
-              {styleTags}
-            </Head>
-            <body>
-              {main}
-              <NextScript />
-            </body>
-          </html>
+			<html lang="th">
+				<Head>
+					<title>My Pages</title>
+					{styleTags}
+				</Head>
+				<body>
+					{main}
+					<NextScript />
+				</body>	
+			</html>
         )
   	}
 }

@@ -1,13 +1,13 @@
 import { Router } from 'express';
+import { login } from '../controllers/auth';
+
 const router = Router();
 
-
-router.get('/', (req, res) => {
- 	res.send('user');
-});
-router.get('/info',(req,res) => {
-	res.send('info');
-});
+//router.get('/', auth);
+router.post('/login',login);
+// router.get('/info',(req,res) => {
+// 	res.send('info');
+// });
 
 
 

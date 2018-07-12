@@ -1,59 +1,126 @@
-// Nav.js
-import Link from '../utils/helper/Link'; 
+// // Nav.js
+// import Link from 'next/link';
+// import { Button,NavItem ,Navbar,Nav,MenuItem,NavDropdown } from 'react-bootstrap';
+// const Navbars = () => {
+//     return (
+//         <div>
+// 			<button className="btn btn-success">OK</button>
+//         	{/* <nav className="navbar is-fixed-top is-info">
+//         		<div className="navbar-brand">
+// 					<Link href="/">
+// 						<a className="navbar-item"> SmartMorn </a>
+// 					</Link>
+// 				</div>
+// 				<div  className="navbar-burger burger">
+// 					<span></span>
+// 					<span></span>
+// 					<span></span>
+// 				</div>
+// 				<div class="navbar-menu">
+// 				<div className="navbar-start">
+// 							<Link href="/" activeClassName="is-active">
+// 								<a className="navbar-item">Home</a>
+// 							</Link>
+// 							<div className="navbar-item has-dropdown is-hoverable">
+// 								<a className="navbar-link">
+// 								Docs
+// 								</a>
 
-const Navbar = () => {
-    return (
-        <div>
-        	<nav className="navbar is-fixed-top is-link">
-        		<div className="navbar-brand">
-								<Link href="/" activeClassName="is-active">
-									<a className="navbar-item"> Home</a>
-								</Link>
-	          
-				</div>
-				<a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false">
-				  	<span aria-hidden="true"></span>
-				  	<span aria-hidden="true"></span>
-				  	<span aria-hidden="true"></span>
-				</a>
-				<div className="navbar-menu">
-					<div className="navbar-menu">
-					  	<div className="navbar-start">
-								<Link href="/about" activeClassName="is-active">
-									<a className="navbar-item">asd</a>
-								</Link>
-					   		<div className="navbar-item">
-							  <div className="field is-grouped">
-							    <p className="control">
-							      <a className="button">
-							        <span className="icon">
-							          <i className="fas fa-twitter" aria-hidden="true"></i>
-							        </span>
-							        <span>Tweet</span>
-							      </a>
-							    </p>
-							    <p className="control">
-							      <a className="button is-primary">
-							        <span className="icon">
-							          <i className="fas fa-download" aria-hidden="true"></i>
-							        </span>
-							        <span>Download</span>
-							      </a>
-							    </p>
-							  </div>
-							</div>
-					  	</div>
-					  	<div className="navbar-end">
+// 								<div className="navbar-dropdown">
+// 									<a className="navbar-item">
+// 										Overview
+// 									</a>
+// 									<a className="navbar-item">
+// 										Elements
+// 									</a>
+// 									<a className="navbar-item">
+// 										Components
+// 									</a>
+// 									<hr className="navbar-divider"/>
+// 									<div className="navbar-item">
+// 										Version 0.7.1
+// 									</div>
+// 								</div>
+// 							</div>
+// 					  	</div>
+// 					  	<div className="navbar-end">
 					  		
-					  	</div>
-					</div>
-				</div>
-				<div className="navbar-menu is-active">
-				  
-				</div>
-        	</nav>
-            
-        </div>
-    )
+// 					  	</div>
+// 				</div>
+
+// 				<div class="navbar-menu is-active">
+// 				</div>
+//         	</nav>
+//          */}
+//         </div>
+//     )
+// }
+// export default Navbars
+
+import React from 'react';
+import Link from '../utils/helper/Link';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+} from 'reactstrap';
+class NavApp extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      isOpen: false
+    };
+  }
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
+  render() {
+    return (
+		<Navbar color="primary" dark expand="md">
+			<NavbarBrand href="/">SmartMorn</NavbarBrand>
+			<NavbarToggler onClick={this.toggle} />
+			<Collapse isOpen={this.state.isOpen} navbar>
+				<Nav className="navbar-nav mr-auto mt-2 mt-lg-0" navbar>
+					<NavItem>
+						<Link href="/dashboard" activeClassName="active">
+							<NavLink>HOME</NavLink>
+						</Link>
+					</NavItem>
+					<NavItem>
+						<Link href="/alarm" activeClassName="active">
+							<NavLink>Alarm</NavLink>
+						</Link>
+					</NavItem>
+					<NavItem>
+						<Link href="/sleeping" activeClassName="active">
+							<NavLink>Sleep Setting</NavLink>
+						</Link>
+					</NavItem>
+					<NavItem>
+						<Link href="/adjustment" activeClassName="active">
+							<NavLink>ADJUSTMENT</NavLink>
+						</Link>
+					</NavItem>
+				</Nav>
+				<Nav className="navbar-nav my-2 my-lg-0" navbar>
+					<NavItem>
+						<Link href="/logout" activeClassName="">
+							<NavLink>LOGOUT</NavLink>
+						</Link>
+					</NavItem>
+				</Nav>
+			</Collapse>
+		</Navbar>
+    );
+  }
 }
-export default Navbar
+
+export default NavApp;

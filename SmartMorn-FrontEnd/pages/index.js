@@ -3,6 +3,7 @@ import React,{ Component } from 'react';
 //import connect from '../store/connect';
 import Link from 'next/link';
 import Layout from '../components/Layout.js';
+import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 //import { setLanguage } from '../store/store';
 //import { actions as appActions } from '../store/reducers';
 const PostLink = (props) => (
@@ -14,22 +15,18 @@ const PostLink = (props) => (
 )
 
 class Index extends Component {
-
-
 	render() {
-	  return (
-				
-				<Layout title="หน้าเเรกนะจ๊ะ">
-					<h1>My Blog</h1>
-					<button>TH</button>
-					<button>EN</button>
-					<ul>
-						<PostLink id="hello-nextjs" title="Hello Next.js"/>
-						<PostLink id="learn-nextjs" title="Learn Next.js is awesome"/>
-						<PostLink id="deploy-nextjs" title="Deploy apps with Zeit"/>
-					</ul>
-				</Layout>
-
+		return (
+		<Layout title="หน้าเเรกนะจ๊ะ" Navbar={true}>
+			<h1>My Blog</h1>
+			<button>TH</button>
+			<button>EN</button>
+			<ul>
+				<PostLink id="hello-nextjs" title="Hello Next.js"/>
+				<PostLink id="learn-nextjs" title="Learn Next.js is awesome"/>
+				<PostLink id="deploy-nextjs" title="Deploy apps with Zeit"/>
+			</ul>
+		</Layout>
 	  )
 	}
 }

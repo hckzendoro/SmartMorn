@@ -1,8 +1,7 @@
 module.exports =
-
-        __NEXT_REGISTER_PAGE('/_document', function() {
-          var comp = 
-      webpackJsonp([1],{
+__NEXT_REGISTER_PAGE('/_document', function() {
+          var comp =
+      webpackJsonp([2],{
 
 /***/ "./node_modules/@babel/runtime/helpers/extends.js":
 /***/ (function(module, exports, __webpack_require__) {
@@ -516,7 +515,7 @@ var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__("./
 
 var _inherits2 = _interopRequireDefault(__webpack_require__("./node_modules/@babel/runtime/helpers/inherits.js"));
 
-var _react = _interopRequireWildcard(__webpack_require__("./node_modules/react/cjs/react.development.js"));
+var _react = _interopRequireWildcard(__webpack_require__("./node_modules/react/index.js"));
 
 var _propTypes = _interopRequireDefault(__webpack_require__("./node_modules/next/node_modules/prop-types/index.js"));
 
@@ -601,6 +600,8 @@ function (_Component2) {
   (0, _createClass2.default)(Head, [{
     key: "getChunkPreloadLink",
     value: function getChunkPreloadLink(filename) {
+      var _this = this;
+
       var _context$_documentPro = this.context._documentProps,
           __NEXT_DATA__ = _context$_documentPro.__NEXT_DATA__,
           buildManifest = _context$_documentPro.buildManifest;
@@ -610,6 +611,7 @@ function (_Component2) {
       return files.map(function (file) {
         return _react.default.createElement("link", {
           key: filename,
+          nonce: _this.props.nonce,
           rel: "preload",
           href: "".concat(assetPrefix, "/_next/").concat(file),
           as: "script"
@@ -631,6 +633,8 @@ function (_Component2) {
   }, {
     key: "getPreloadDynamicChunks",
     value: function getPreloadDynamicChunks() {
+      var _this2 = this;
+
       var _context$_documentPro2 = this.context._documentProps,
           chunks = _context$_documentPro2.chunks,
           __NEXT_DATA__ = _context$_documentPro2.__NEXT_DATA__;
@@ -640,7 +644,8 @@ function (_Component2) {
           key: chunk,
           rel: "preload",
           href: "".concat(assetPrefix, "/_next/webpack/chunks/").concat(chunk),
-          as: "script"
+          as: "script",
+          nonce: _this2.props.nonce
         });
       });
     }
@@ -663,15 +668,18 @@ function (_Component2) {
       }), page !== '/_error' && _react.default.createElement("link", {
         rel: "preload",
         href: "".concat(assetPrefix, "/_next/").concat(buildId, "/page").concat(pagePathname),
-        as: "script"
+        as: "script",
+        nonce: this.props.nonce
       }), _react.default.createElement("link", {
         rel: "preload",
         href: "".concat(assetPrefix, "/_next/").concat(buildId, "/page/_app.js"),
-        as: "script"
+        as: "script",
+        nonce: this.props.nonce
       }), _react.default.createElement("link", {
         rel: "preload",
         href: "".concat(assetPrefix, "/_next/").concat(buildId, "/page/_error.js"),
-        as: "script"
+        as: "script",
+        nonce: this.props.nonce
       }), this.getPreloadDynamicChunks(), this.getPreloadMainLinks(), styles || null, this.props.children);
     }
   }]);
@@ -685,6 +693,14 @@ Object.defineProperty(Head, "contextTypes", {
   writable: true,
   value: {
     _documentProps: _propTypes.default.any
+  }
+});
+Object.defineProperty(Head, "propTypes", {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  value: {
+    nonce: _propTypes.default.string
   }
 });
 
@@ -743,6 +759,8 @@ function (_Component4) {
   (0, _createClass2.default)(NextScript, [{
     key: "getChunkScript",
     value: function getChunkScript(filename) {
+      var _this3 = this;
+
       var additionalProps = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
       var _context$_documentPro5 = this.context._documentProps,
           __NEXT_DATA__ = _context$_documentPro5.__NEXT_DATA__,
@@ -753,7 +771,8 @@ function (_Component4) {
       return files.map(function (file) {
         return _react.default.createElement("script", (0, _extends2.default)({
           key: filename,
-          src: "".concat(assetPrefix, "/_next/").concat(file)
+          src: "".concat(assetPrefix, "/_next/").concat(file),
+          nonce: _this3.props.nonce
         }, additionalProps));
       });
     }
@@ -775,6 +794,8 @@ function (_Component4) {
   }, {
     key: "getDynamicChunks",
     value: function getDynamicChunks() {
+      var _this4 = this;
+
       var _context$_documentPro6 = this.context._documentProps,
           chunks = _context$_documentPro6.chunks,
           __NEXT_DATA__ = _context$_documentPro6.__NEXT_DATA__;
@@ -783,7 +804,8 @@ function (_Component4) {
         return _react.default.createElement("script", {
           async: true,
           key: chunk,
-          src: "".concat(assetPrefix, "/_next/webpack/chunks/").concat(chunk)
+          src: "".concat(assetPrefix, "/_next/webpack/chunks/").concat(chunk),
+          nonce: _this4.props.nonce
         });
       }));
     }
@@ -808,15 +830,18 @@ function (_Component4) {
       }), page !== '/_error' && _react.default.createElement("script", {
         async: true,
         id: "__NEXT_PAGE__".concat(pathname),
-        src: "".concat(assetPrefix, "/_next/").concat(buildId, "/page").concat(pagePathname)
+        src: "".concat(assetPrefix, "/_next/").concat(buildId, "/page").concat(pagePathname),
+        nonce: this.props.nonce
       }), _react.default.createElement("script", {
         async: true,
         id: "__NEXT_PAGE__/_app",
-        src: "".concat(assetPrefix, "/_next/").concat(buildId, "/page/_app.js")
+        src: "".concat(assetPrefix, "/_next/").concat(buildId, "/page/_app.js"),
+        nonce: this.props.nonce
       }), _react.default.createElement("script", {
         async: true,
         id: "__NEXT_PAGE__/_error",
-        src: "".concat(assetPrefix, "/_next/").concat(buildId, "/page/_error.js")
+        src: "".concat(assetPrefix, "/_next/").concat(buildId, "/page/_error.js"),
+        nonce: this.props.nonce
       }), staticMarkup ? null : this.getDynamicChunks(), staticMarkup ? null : this.getScripts());
     }
   }]);
@@ -1047,7 +1072,7 @@ module.exports = hash;
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* unused harmony export css */
 /* unused harmony export keyframes */
-/* unused harmony export injectGlobal */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return injectGlobal; });
 /* unused harmony export isStyledComponent */
 /* unused harmony export consolidateStreamedStyles */
 /* unused harmony export ThemeProvider */
@@ -1061,7 +1086,7 @@ module.exports = hash;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_stylis___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_stylis__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_stylis_rule_sheet__ = __webpack_require__("./node_modules/stylis-rule-sheet/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_stylis_rule_sheet___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_stylis_rule_sheet__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react__ = __webpack_require__("./node_modules/react/cjs/react.development.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react__ = __webpack_require__("./node_modules/react/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_prop_types__ = __webpack_require__("./node_modules/next/node_modules/prop-types/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_prop_types__);
@@ -2726,20 +2751,14 @@ var _StyledComponent = (function (ComponentStyle, constructWithOptions) {
   var generateId = function generateId(_displayName, parentComponentId) {
     var displayName = typeof _displayName !== 'string' ? 'sc' : escape(_displayName);
 
-    var componentId = void 0;
-
     /**
-     * only fall back to hashing the component injection order if
-     * a proper displayName isn't provided by the babel plugin
+     * This ensures uniqueness if two components happen to share
+     * the same displayName.
      */
-    if (!_displayName) {
-      var nr = (identifiers[displayName] || 0) + 1;
-      identifiers[displayName] = nr;
+    var nr = (identifiers[displayName] || 0) + 1;
+    identifiers[displayName] = nr;
 
-      componentId = displayName + '-' + ComponentStyle.generateName(displayName + nr);
-    } else {
-      componentId = displayName + '-' + ComponentStyle.generateName(displayName);
-    }
+    var componentId = displayName + '-' + ComponentStyle.generateName(displayName + nr);
 
     return parentComponentId !== undefined ? parentComponentId + '-' + componentId : componentId;
   };
@@ -2927,7 +2946,7 @@ var _StyledComponent = (function (ComponentStyle, constructWithOptions) {
         attrs = options.attrs;
 
 
-    var styledComponentId = options.displayName && options.componentId ? escape(options.displayName) + '-' + options.componentId : componentId;
+    var styledComponentId = options.displayName && options.componentId ? escape(options.displayName) + '-' + options.componentId : options.componentId || componentId;
 
     var componentStyle = new ComponentStyle(extendingRules === undefined ? rules : extendingRules.concat(rules), attrs, styledComponentId);
 
@@ -2976,6 +2995,11 @@ var _StyledComponent = (function (ComponentStyle, constructWithOptions) {
       return StyledComponent;
     }(ParentComponent);
 
+    StyledComponent.attrs = attrs;
+    StyledComponent.componentStyle = componentStyle;
+    StyledComponent.displayName = displayName;
+    StyledComponent.styledComponentId = styledComponentId;
+    StyledComponent.target = target;
     StyledComponent.contextTypes = (_StyledComponent$cont = {}, _StyledComponent$cont[CHANNEL] = __WEBPACK_IMPORTED_MODULE_4_prop_types___default.a.func, _StyledComponent$cont[CHANNEL_NEXT] = CONTEXT_CHANNEL_SHAPE, _StyledComponent$cont[CONTEXT_KEY] = __WEBPACK_IMPORTED_MODULE_4_prop_types___default.a.oneOfType([__WEBPACK_IMPORTED_MODULE_4_prop_types___default.a.instanceOf(StyleSheet), __WEBPACK_IMPORTED_MODULE_4_prop_types___default.a.instanceOf(ServerStyleSheet)]), _StyledComponent$cont);
 
 
@@ -2983,15 +3007,19 @@ var _StyledComponent = (function (ComponentStyle, constructWithOptions) {
       StyledComponent.warnTooManyClasses = createWarnTooManyClasses(displayName);
     }
 
-    if (isClass) __WEBPACK_IMPORTED_MODULE_5_hoist_non_react_statics___default()(StyledComponent, target);
-
-    // we do this after hoisting to ensure we're overwriting existing
-    // rules when wrapping another styled component class
-    StyledComponent.displayName = displayName;
-    StyledComponent.styledComponentId = styledComponentId;
-    StyledComponent.attrs = attrs;
-    StyledComponent.componentStyle = componentStyle;
-    StyledComponent.target = target;
+    if (isClass) {
+      __WEBPACK_IMPORTED_MODULE_5_hoist_non_react_statics___default()(StyledComponent, target, {
+        // all SC-specific things should not be hoisted
+        attrs: true,
+        componentStyle: true,
+        displayName: true,
+        extend: true,
+        styledComponentId: true,
+        target: true,
+        warnTooManyClasses: true,
+        withComponent: true
+      });
+    }
 
     return StyledComponent;
   };
@@ -3666,7 +3694,7 @@ var _getIterator3 = _interopRequireDefault(_getIterator2);
 exports.default = flushToReact;
 exports.flushToHTML = flushToHTML;
 
-var _react = __webpack_require__("./node_modules/react/cjs/react.development.js");
+var _react = __webpack_require__("./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -3789,7 +3817,7 @@ var _inherits3 = _interopRequireDefault(_inherits2);
 
 exports.flush = flush;
 
-var _react = __webpack_require__("./node_modules/react/cjs/react.development.js");
+var _react = __webpack_require__("./node_modules/react/index.js");
 
 var _stylesheetRegistry = __webpack_require__("./node_modules/styled-jsx/dist/stylesheet-registry.js");
 
@@ -5883,18 +5911,12 @@ module.exports = function(originalModule) {
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* WEBPACK VAR INJECTION */(function(module) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MyDocument; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/cjs/react.development.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_document__ = __webpack_require__("./node_modules/next/document.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_document___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_next_document__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_styled_components__ = __webpack_require__("./node_modules/styled-components/dist/styled-components.browser.es.js");
 var _jsxFileName = "/Users/zendoro/Desktop/SmartMorn/SmartMorn-FrontEnd/pages/_document.js";
-
-(function () {
-  var enterModule = __webpack_require__("./node_modules/react-hot-loader/index.js").enterModule;
-
-  enterModule && enterModule(module);
-})();
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -5964,13 +5986,6 @@ function (_Document) {
         }
       })));
     }
-  }, {
-    key: "__reactstandin__regenerateByEval",
-    // @ts-ignore
-    value: function __reactstandin__regenerateByEval(key, code) {
-      // @ts-ignore
-      this[key] = eval(code);
-    }
   }], [{
     key: "getInitialProps",
     value: function getInitialProps(_ref) {
@@ -5995,22 +6010,6 @@ function (_Document) {
 }(__WEBPACK_IMPORTED_MODULE_1_next_document___default.a);
 
 
-;
-
-(function () {
-  var reactHotLoader = __webpack_require__("./node_modules/react-hot-loader/index.js").default;
-
-  var leaveModule = __webpack_require__("./node_modules/react-hot-loader/index.js").leaveModule;
-
-  if (!reactHotLoader) {
-    return;
-  }
-
-  reactHotLoader.register(MyDocument, "MyDocument", "/Users/zendoro/Desktop/SmartMorn/SmartMorn-FrontEnd/pages/_document.js");
-  leaveModule(module);
-})();
-
-;
     (function (Component, route) {
       if(!Component) return
       if (false) return
@@ -6033,7 +6032,7 @@ function (_Document) {
 
 /***/ }),
 
-/***/ 1:
+/***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/_document.js");
@@ -6041,7 +6040,7 @@ module.exports = __webpack_require__("./pages/_document.js");
 
 /***/ })
 
-},[1])
+},[2])
           return { page: comp.default }
         })
       ;

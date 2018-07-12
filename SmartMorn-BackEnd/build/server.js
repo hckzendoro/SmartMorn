@@ -24,13 +24,28 @@ var _expressSession = require('express-session');
 
 var _expressSession2 = _interopRequireDefault(_expressSession);
 
+var _socket = require('./controllers/socket.IO');
+
+var _socket2 = _interopRequireDefault(_socket);
+
 var _routes = require('./routes');
 
 var _routes2 = _interopRequireDefault(_routes);
 
+var _cors = require('cors');
+
+var _cors2 = _interopRequireDefault(_cors);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var app = (0, _express2.default)();
+(0, _socket2.default)(app);
+
+app.use((0, _cors2.default)({
+  'origin': '*',
+  'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  'preflightContinue': false
+}));
 
 app.use((0, _compression2.default)());
 app.use(_bodyParser2.default.json());
