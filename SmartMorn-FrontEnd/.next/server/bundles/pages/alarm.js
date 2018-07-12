@@ -67,7 +67,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -511,7 +511,7 @@ function (_React$Component) {
           lineNumber: 114
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__utils_helper_Link__["a" /* default */], {
-        href: "/logout",
+        href: "/login",
         activeClassName: "",
         __source: {
           fileName: _jsxFileName,
@@ -784,7 +784,7 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 
 /***/ }),
 
-/***/ 5:
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/alarm.js");

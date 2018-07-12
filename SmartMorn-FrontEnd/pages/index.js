@@ -3,6 +3,7 @@ import React,{ Component } from 'react';
 //import connect from '../store/connect';
 import Link from 'next/link';
 import Layout from '../components/Layout.js';
+import Router from 'next/router';
 import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 //import { setLanguage } from '../store/store';
 //import { actions as appActions } from '../store/reducers';
@@ -15,7 +16,12 @@ const PostLink = (props) => (
 )
 
 class Index extends Component {
+	constructor (props) {
+		super(props);
+		
+	}
 	render() {
+	
 		return (
 		<Layout title="หน้าเเรกนะจ๊ะ" Navbar={true}>
 			<h1>My Blog</h1>

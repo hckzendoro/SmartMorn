@@ -112,7 +112,7 @@ class NavApp extends React.Component {
 				</Nav>
 				<Nav className="navbar-nav my-2 my-lg-0" navbar>
 					<NavItem>
-						<Link href="/logout" activeClassName="">
+						<Link href="/login" activeClassName="">
 							<NavLink>LOGOUT</NavLink>
 						</Link>
 					</NavItem>

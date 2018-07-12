@@ -3,32 +3,55 @@ import axios from '../../utils/api';
 
 import { defineAction } from 'redux-define';
 
-const ACTION_AUTH = defineAction('AUTH', ['LOGIN','PENDING', 'RESOLVED', 'REJECTED'], 'SMARTMORN');
-console.log(ACTION_AUTH);
+const App = 'SMARTMORN';
+
+const ACTION_AUTH_LOGIN = defineAction('AUTH_LOGIN', ['PENDING', 'RESOLVED', 'REJECTED'], App);
+const ACTION_AUTH_REGISTER = defineAction('AUTH_REGISTER', ['PENDING', 'RESOLVED', 'REJECTED'], App);
+console.log(ACTION_AUTH_REGISTER);
 const initialState = {
     isLogin: false,
     loading: false,
-    errorMessage: ''
+    messageLogin: '',
+    messageRegister: '',
+    error: ''
 };
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case ACTION_AUTH.RESOLVED: 
+        case ACTION_AUTH_LOGIN.RESOLVED: 
             return {
                 ...state,
                 isLogin: !state.isLogin,
-                loading: !state.loading
+                loading: false
             };
-        case ACTION_AUTH.PENDING: 
+        case ACTION_AUTH_LOGIN.PENDING: 
             return {
                 ...state,
                 loading: !state.loading
             }
-        case ACTION_AUTH.REJECTED: 
+        case ACTION_AUTH_LOGIN.REJECTED: 
             return {
                 ...state,
                 loading: !state.loading,
-                errorMessage: action.payload.message
+                messageLogin: action.payload.message
+            }
+        case ACTION_AUTH_REGISTER.REJECTED: 
+            return {
+                ...state,
+                loading: !state.loading,
+                messageRegister: action.payload.message,
+                error: true
+            }
+        case ACTION_AUTH_REGISTER.PENDING: 
+            return {
+                ...state,
+                loading: !state.loading
+            }
+        case ACTION_AUTH_REGISTER.RESOLVED: 
+            return {
+                ...state,
+                messageRegister: action.payload.message,
+                error: false
             }
         default: return state;
     }
@@ -37,34 +60,79 @@ export default (state = initialState, action) => {
 export const actions = {
     Login: (username, password) => (dispatch)  => {
         dispatch({
-            type: ACTION_AUTH.PENDING
+            type: ACTION_AUTH_LOGIN.PENDING
         })
         axios().post('/users/login',{
             username: username,
             password: password
         }).then((resp) => {
             if(!resp.data.error) {
+                window.localStorage.setItem('SmartMornKey', resp.data.token);
                 return dispatch({ 
-                    type: ACTION_AUTH.RESOLVED
+                    type: ACTION_AUTH_LOGIN.RESOLVED
                 });
+                
             } else {
                 return dispatch({ 
-                    type: ACTION_AUTH.REJECTED,
+                    type: ACTION_AUTH_LOGIN.REJECTED,
                     payload: {
-                        message: resp.data.messagea
+                        message: resp.data.message
                     }
                 });
             }
         }).catch((error) => {
             return dispatch({ 
-                type: ACTION_AUTH.REJECTED,
+                type: ACTION_AUTH_LOGIN.REJECTED,
                 payload: {
-                    message: 'error : cannot connect to api server'
+                    message: 'Error : cannot connect to api server'
                 }
             });
+        });
+    }, 
+    Register: (state) => (dispatch) => {
+        
+        if(state.password != state.confirmPassword) {
+            return dispatch({ 
+                type: ACTION_AUTH_REGISTER.REJECTED,
+                payload: {
+                    message: 'Password not Match'
+                }
+            });
+        }
+        dispatch({
+            type: ACTION_AUTH_REGISTER.PENDING
         })
-       
-    },
+        axios().post('/users/register',{
+            username: state.username,
+            password: state.password,
+            birthday: state.birthday,
+            gender: state.gender
+        }).then((resp) => {
+            if(!resp.data.error) {
+                return dispatch({ 
+                    type: ACTION_AUTH_REGISTER.RESOLVED,
+                    payload: {
+                        message: resp.data.message
+                    }
+                });
+                
+            } else {
+                return dispatch({ 
+                    type: ACTION_AUTH_REGISTER.REJECTED,
+                    payload: {
+                        message: resp.data.message
+                    }
+                });
+            }
+        }).catch((error) => {
+            return dispatch({ 
+                type: ACTION_AUTH_REGISTER.REJECTED,
+                payload: {
+                    message: 'Error : cannot connect to api server'
+                }
+            });
+        });
+    }
 };
 
 // Debug 

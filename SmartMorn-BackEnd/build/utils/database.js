@@ -14,8 +14,8 @@ var pool = _mysql2.default.createPool({
     connectionLimit: 100,
     host: '127.0.0.1',
     user: 'root',
-    password: '0852930826Aq',
-    database: 'vue_cloud',
+    password: 'mysql',
+    database: 'smartPillow',
     debug: false
 });
 

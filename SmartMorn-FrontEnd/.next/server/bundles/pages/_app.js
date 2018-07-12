@@ -250,7 +250,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return actions; });
+/* unused harmony export actions */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__("lodash");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_api__ = __webpack_require__("./utils/api.js");
@@ -263,33 +263,55 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var ACTION_AUTH = Object(__WEBPACK_IMPORTED_MODULE_2_redux_define__["defineAction"])('AUTH', ['LOGIN', 'PENDING', 'RESOLVED', 'REJECTED'], 'SMARTMORN');
-console.log(ACTION_AUTH);
+var App = 'SMARTMORN';
+var ACTION_AUTH_LOGIN = Object(__WEBPACK_IMPORTED_MODULE_2_redux_define__["defineAction"])('AUTH_LOGIN', ['PENDING', 'RESOLVED', 'REJECTED'], App);
+var ACTION_AUTH_REGISTER = Object(__WEBPACK_IMPORTED_MODULE_2_redux_define__["defineAction"])('AUTH_REGISTER', ['PENDING', 'RESOLVED', 'REJECTED'], App);
+console.log(ACTION_AUTH_REGISTER);
 var initialState = {
   isLogin: false,
   loading: false,
-  errorMessage: ''
+  messageLogin: '',
+  messageRegister: '',
+  error: ''
 };
-/* harmony default export */ __webpack_exports__["b"] = (function () {
+/* harmony default export */ __webpack_exports__["a"] = (function () {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
-    case ACTION_AUTH.RESOLVED:
+    case ACTION_AUTH_LOGIN.RESOLVED:
       return _objectSpread({}, state, {
         isLogin: !state.isLogin,
-        loading: !state.loading
+        loading: false
       });
 
-    case ACTION_AUTH.PENDING:
+    case ACTION_AUTH_LOGIN.PENDING:
       return _objectSpread({}, state, {
         loading: !state.loading
       });
 
-    case ACTION_AUTH.REJECTED:
+    case ACTION_AUTH_LOGIN.REJECTED:
       return _objectSpread({}, state, {
         loading: !state.loading,
-        errorMessage: action.payload.message
+        messageLogin: action.payload.message
+      });
+
+    case ACTION_AUTH_REGISTER.REJECTED:
+      return _objectSpread({}, state, {
+        loading: !state.loading,
+        messageRegister: action.payload.message,
+        error: true
+      });
+
+    case ACTION_AUTH_REGISTER.PENDING:
+      return _objectSpread({}, state, {
+        loading: !state.loading
+      });
+
+    case ACTION_AUTH_REGISTER.RESOLVED:
+      return _objectSpread({}, state, {
+        messageRegister: action.payload.message,
+        error: false
       });
 
     default:
@@ -300,29 +322,75 @@ var actions = {
   Login: function Login(username, password) {
     return function (dispatch) {
       dispatch({
-        type: ACTION_AUTH.PENDING
+        type: ACTION_AUTH_LOGIN.PENDING
       });
       Object(__WEBPACK_IMPORTED_MODULE_1__utils_api__["a" /* default */])().post('/users/login', {
         username: username,
         password: password
       }).then(function (resp) {
         if (!resp.data.error) {
+          window.localStorage.setItem('SmartMornKey', resp.data.token);
           return dispatch({
-            type: ACTION_AUTH.RESOLVED
+            type: ACTION_AUTH_LOGIN.RESOLVED
           });
         } else {
           return dispatch({
-            type: ACTION_AUTH.REJECTED,
+            type: ACTION_AUTH_LOGIN.REJECTED,
             payload: {
-              message: resp.data.messagea
+              message: resp.data.message
             }
           });
         }
       }).catch(function (error) {
         return dispatch({
-          type: ACTION_AUTH.REJECTED,
+          type: ACTION_AUTH_LOGIN.REJECTED,
           payload: {
-            message: 'error : cannot connect to api server'
+            message: 'Error : cannot connect to api server'
+          }
+        });
+      });
+    };
+  },
+  Register: function Register(state) {
+    return function (dispatch) {
+      if (state.password != state.confirmPassword) {
+        return dispatch({
+          type: ACTION_AUTH_REGISTER.REJECTED,
+          payload: {
+            message: 'Password not Match'
+          }
+        });
+      }
+
+      dispatch({
+        type: ACTION_AUTH_REGISTER.PENDING
+      });
+      Object(__WEBPACK_IMPORTED_MODULE_1__utils_api__["a" /* default */])().post('/users/register', {
+        username: state.username,
+        password: state.password,
+        birthday: state.birthday,
+        gender: state.gender
+      }).then(function (resp) {
+        if (!resp.data.error) {
+          return dispatch({
+            type: ACTION_AUTH_REGISTER.RESOLVED,
+            payload: {
+              message: resp.data.message
+            }
+          });
+        } else {
+          return dispatch({
+            type: ACTION_AUTH_REGISTER.REJECTED,
+            payload: {
+              message: resp.data.message
+            }
+          });
+        }
+      }).catch(function (error) {
+        return dispatch({
+          type: ACTION_AUTH_REGISTER.REJECTED,
+          payload: {
+            message: 'Error : cannot connect to api server'
           }
         });
       });
@@ -352,7 +420,7 @@ var actions = {
 
 
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_0_redux__["combineReducers"])({
-  auth: __WEBPACK_IMPORTED_MODULE_1__auth__["b" /* default */]
+  auth: __WEBPACK_IMPORTED_MODULE_1__auth__["a" /* default */]
 }));
 
 /***/ }),
