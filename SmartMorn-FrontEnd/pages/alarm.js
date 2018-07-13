@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import Router from 'next/router';
+import { bindActionCreators } from 'redux'; 
+import { actions as Alarms } from '../redux/reducers/alarm';
 import {
     Col,
     Row,
@@ -9,9 +12,11 @@ import {
     Form,
     FormGroup,
     Label,
-    Button
+    Button,
+    Alert
 } from 'reactstrap';
 import Layout from '../components/Layout';
+import { connect } from 'react-redux';
 
 const Margin = styled.div`
     margin-top: 7vh;
@@ -22,7 +27,32 @@ const icontSize = styled.i`
 
 class Alarm extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
+        this.state = {
+            date: '',
+            time: ''
+        }
+        this.checkLogin.bind(this);
+    }
+    checkLogin() {
+        const token = localStorage.getItem('SmartMornKey');
+        console.log(token)
+        if(!token) {
+            Router.push('/login');
+        }
+    }
+    setAlarm = (e) => {
+        e.preventDefault();
+        this.props.setAlarm(this.state);
+    }
+    handleChange = (field) => (e) => {
+        this.setState({
+            [field]: e.target.value
+        });
+    }
+    componentDidMount() {
+        this.checkLogin();
+        this.props.clearMessage();
     }
     render() {
         return (
@@ -32,19 +62,34 @@ class Alarm extends React.Component {
                         <Col md={{ size: 6, offset: 3 }}>
                             <Card>
                                 <CardBody>
-                                    <h4><i className="icon ion-md-time" style={{ fontSize: '35px' }}></i> Alarm Setting</h4><br/><br/>
-                                    <Form method="post">
+                                    <h4><i className="icon ion-md-time" style={{ fontSize: '35px' }}></i> Alarm Setting</h4>
+                                    <br/>
+                                    { this.props.message && 
+                                        <Alert color="success">
+                                             {this.props.message}
+                                        </Alert>
+                                    }
+                                    <br/>
+                                    <Form method="post" onSubmit={this.setAlarm}>   
                                         <Row>
                                             <Col md="6">
                                                 <FormGroup>
                                                     <Label for="username">Date</Label>
-                                                    <Input type="date" name="date" id="date" placeholder="date placeholder" />
+                                                    <Input type="date" name="date" id="date" placeholder="date placeholder"
+                                                    value={this.state.date}
+                                                    onChange={this.handleChange('date')}
+                                                    required="true"
+                                                     />
                                                 </FormGroup>
                                             </Col>
                                             <Col md="6">
                                                 <FormGroup>
                                                     <Label for="username">Time</Label>
-                                                    <Input type="time" name="date" id="date" placeholder="date placeholder" />
+                                                    <Input type="time" name="date" id="date" placeholder="date placeholder" 
+                                                    value={this.state.time}
+                                                    onChange={this.handleChange('time')}
+                                                    required="true"
+                                                    />
                                                 </FormGroup>
                                             </Col>
                                         </Row>
@@ -60,4 +105,12 @@ class Alarm extends React.Component {
         );
     }
 }
-export default Alarm;
+const mapStateToProps = ({ alarm }) => ({
+    message: alarm.message
+})
+//console.log(Alarms)
+const mapDispatchToProps = (dispatch) => ({
+    setAlarm: bindActionCreators(Alarms.setAlarm,dispatch),
+    clearMessage: bindActionCreators(Alarms.clearMessage,dispatch)
+})
+export default connect(mapStateToProps,mapDispatchToProps)(Alarm);

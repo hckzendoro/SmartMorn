@@ -3,6 +3,10 @@ import Layout from '../components/Layout';
 import styled from 'styled-components';
 import {Line,Doughnut,Pie} from 'react-chartjs-2';
 import Link from 'next/link';
+import Router from 'next/router';
+//import { actions as auth  } from '../redux/reducers/auth'
+import { connect } from "react-redux";
+
 import { 
     Input,
     Row,
@@ -93,9 +97,17 @@ class Dashboard extends React.Component {
     
     constructor(props) {
         super(props);
+        this.checkLogin.bind(this);
+    }
+    checkLogin() {
+        const token = localStorage.getItem('SmartMornKey');
+        console.log(token)
+        if(!token) {
+            Router.push('/login');
+        }
     }
     componentDidMount() {
-        
+        this.checkLogin();
     }
     render() {
         return (
@@ -157,4 +169,12 @@ class Dashboard extends React.Component {
     }
 
 }
-export default Dashboard;
+const mapStateToProps = ({ dashboard }) => ({
+    
+})
+
+const mapDispatchToProps = (dispatch) => ({
+    
+})
+
+export default connect(mapStateToProps,mapDispatchToProps)(Dashboard);

@@ -246,6 +246,239 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
+/***/ "./redux/reducers/adjustment.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return actions; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__("lodash");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_api__ = __webpack_require__("./utils/api.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_redux_define__ = __webpack_require__("redux-define");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_redux_define___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_redux_define__);
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var App = 'SMARTMORN';
+var ACTION_AUTH_ADJUST = Object(__WEBPACK_IMPORTED_MODULE_2_redux_define__["defineAction"])('AUTH_ADJUST', ['PENDING', 'RESOLVED', 'REJECTED', 'CLEAR'], App);
+console.log(ACTION_AUTH_ADJUST);
+var initialState = {
+  loading: false,
+  error: '',
+  message: ''
+};
+/* harmony default export */ __webpack_exports__["b"] = (function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case ACTION_AUTH_ADJUST.RESOLVED:
+      return _objectSpread({}, state, {
+        error: false,
+        message: action.payload.message
+      });
+
+    case ACTION_AUTH_ADJUST.PENDING:
+      return _objectSpread({}, state);
+
+    case ACTION_AUTH_ADJUST.REJECTED:
+      return _objectSpread({}, state);
+
+    case ACTION_AUTH_ADJUST.CLEAR:
+      return _objectSpread({}, state, {
+        message: false
+      });
+
+    default:
+      return state;
+  }
+});
+var actions = {
+  turnOn: function turnOn(state) {
+    return function (dispatch) {
+      dispatch({
+        type: ACTION_AUTH_ADJUST.PENDING
+      });
+      Object(__WEBPACK_IMPORTED_MODULE_1__utils_api__["a" /* default */])().get('/adjustment/on').then(function (resp) {
+        if (!resp.data.error) {
+          return dispatch({
+            type: ACTION_AUTH_ADJUST.RESOLVED,
+            payload: {
+              message: resp.data.message
+            }
+          });
+        } else {
+          return dispatch({
+            type: ACTION_AUTH_ADJUST.REJECTED,
+            payload: {
+              message: resp.data.message
+            }
+          });
+        }
+      }).catch(function (error) {
+        return dispatch({
+          type: ACTION_AUTH_ADJUST.REJECTED,
+          payload: {
+            message: 'Error : cannot connect to api server'
+          }
+        });
+      });
+    };
+  },
+  turnOff: function turnOff(state) {
+    return function (dispatch) {
+      dispatch({
+        type: ACTION_AUTH_ADJUST.PENDING
+      });
+      Object(__WEBPACK_IMPORTED_MODULE_1__utils_api__["a" /* default */])().get('/adjustment/off').then(function (resp) {
+        if (!resp.data.error) {
+          return dispatch({
+            type: ACTION_AUTH_ADJUST.RESOLVED,
+            payload: {
+              message: resp.data.message
+            }
+          });
+        } else {
+          return dispatch({
+            type: ACTION_AUTH_ADJUST.REJECTED,
+            payload: {
+              message: resp.data.message
+            }
+          });
+        }
+      }).catch(function (error) {
+        return dispatch({
+          type: ACTION_AUTH_ADJUST.REJECTED,
+          payload: {
+            message: 'Error : cannot connect to api server'
+          }
+        });
+      });
+    };
+  },
+  clearMessage: function clearMessage() {
+    return function (dispatch) {
+      dispatch({
+        type: ACTION_AUTH_ADJUST.CLEAR
+      });
+    };
+  }
+};
+
+/***/ }),
+
+/***/ "./redux/reducers/alarm.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return actions; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__("lodash");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_api__ = __webpack_require__("./utils/api.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_redux_define__ = __webpack_require__("redux-define");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_redux_define___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_redux_define__);
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var App = 'SMARTMORN';
+var ACTION_AUTH_ALARM = Object(__WEBPACK_IMPORTED_MODULE_2_redux_define__["defineAction"])('AUTH_ALARM', ['PENDING', 'RESOLVED', 'REJECTED', 'CLEAR'], App);
+console.log(ACTION_AUTH_ALARM);
+var initialState = {
+  loading: false,
+  error: '',
+  message: ''
+};
+/* harmony default export */ __webpack_exports__["b"] = (function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case ACTION_AUTH_ALARM.RESOLVED:
+      return _objectSpread({}, state, {
+        error: false,
+        message: action.payload.message
+      });
+
+    case ACTION_AUTH_ALARM.PENDING:
+      return _objectSpread({}, state);
+
+    case ACTION_AUTH_ALARM.REJECTED:
+      return _objectSpread({}, state);
+
+    case ACTION_AUTH_ALARM.CLEAR:
+      return _objectSpread({}, state, {
+        message: false
+      });
+
+    default:
+      return state;
+  }
+});
+var actions = {
+  setAlarm: function setAlarm(state) {
+    return function (dispatch) {
+      console.log('work @ redux');
+      dispatch({
+        type: ACTION_AUTH_ALARM.PENDING
+      });
+      Object(__WEBPACK_IMPORTED_MODULE_1__utils_api__["a" /* default */])().post('/users/setalarm', {
+        date: state.date,
+        time: state.time
+      }).then(function (resp) {
+        if (!resp.data.error) {
+          dispatch({
+            type: ACTION_AUTH_ALARM.RESOLVED,
+            payload: {
+              message: resp.data.message
+            }
+          });
+        } else {
+          dispatch({
+            type: ACTION_AUTH_ALARM.REJECTED,
+            payload: {
+              message: resp.data.message
+            }
+          });
+        }
+      }).catch(function (error) {
+        return dispatch({
+          type: ACTION_AUTH_ALARM.REJECTED,
+          payload: {
+            message: 'Error : cannot connect to api server'
+          }
+        });
+      });
+    };
+  },
+  clearMessage: function clearMessage() {
+    return function (dispatch) {
+      dispatch({
+        type: ACTION_AUTH_ALARM.CLEAR
+      });
+    };
+  }
+}; // Debug 
+// export const login = (username,password) => (dispatch) => {
+//     const data = dispatch({
+//         type: 'Login',
+//         payload: {
+//             username: username,
+//             password: password
+//         }
+//     });
+//     console.log(data);
+// }
+
+/***/ }),
+
 /***/ "./redux/reducers/auth.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -264,8 +497,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var App = 'SMARTMORN';
-var ACTION_AUTH_LOGIN = Object(__WEBPACK_IMPORTED_MODULE_2_redux_define__["defineAction"])('AUTH_LOGIN', ['PENDING', 'RESOLVED', 'REJECTED'], App);
-var ACTION_AUTH_REGISTER = Object(__WEBPACK_IMPORTED_MODULE_2_redux_define__["defineAction"])('AUTH_REGISTER', ['PENDING', 'RESOLVED', 'REJECTED'], App);
+var ACTION_AUTH_LOGIN = Object(__WEBPACK_IMPORTED_MODULE_2_redux_define__["defineAction"])('AUTH_LOGIN', ['PENDING', 'RESOLVED', 'REJECTED', 'CLEAR'], App);
+var ACTION_AUTH_REGISTER = Object(__WEBPACK_IMPORTED_MODULE_2_redux_define__["defineAction"])('AUTH_REGISTER', ['PENDING', 'RESOLVED', 'REJECTED', 'CLEAR'], App);
 console.log(ACTION_AUTH_REGISTER);
 var initialState = {
   isLogin: false,
@@ -282,7 +515,8 @@ var initialState = {
     case ACTION_AUTH_LOGIN.RESOLVED:
       return _objectSpread({}, state, {
         isLogin: !state.isLogin,
-        loading: false
+        loading: false,
+        messageLogin: action.payload.message
       });
 
     case ACTION_AUTH_LOGIN.PENDING:
@@ -314,6 +548,18 @@ var initialState = {
         error: false
       });
 
+    case ACTION_AUTH_REGISTER.CLEAR:
+      return _objectSpread({}, state, {
+        messageRegister: false,
+        error: false
+      });
+
+    case ACTION_AUTH_LOGIN.CLEAR:
+      return _objectSpread({}, state, {
+        messageLogin: false,
+        error: false
+      });
+
     default:
       return state;
   }
@@ -331,7 +577,10 @@ var actions = {
         if (!resp.data.error) {
           window.localStorage.setItem('SmartMornKey', resp.data.token);
           return dispatch({
-            type: ACTION_AUTH_LOGIN.RESOLVED
+            type: ACTION_AUTH_LOGIN.RESOLVED,
+            payload: {
+              message: false
+            }
           });
         } else {
           return dispatch({
@@ -395,6 +644,20 @@ var actions = {
         });
       });
     };
+  },
+  clearMessageLogin: function clearMessageLogin() {
+    return function (dispatch) {
+      dispatch({
+        type: ACTION_AUTH_LOGIN.CLEAR
+      });
+    };
+  },
+  clearMessageRegister: function clearMessageRegister() {
+    return function (dispatch) {
+      dispatch({
+        type: ACTION_AUTH_REGISTER.CLEAR
+      });
+    };
   }
 }; // Debug 
 // export const login = (username,password) => (dispatch) => {
@@ -410,6 +673,104 @@ var actions = {
 
 /***/ }),
 
+/***/ "./redux/reducers/dashboard.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export actions */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__("lodash");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_api__ = __webpack_require__("./utils/api.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_redux_define__ = __webpack_require__("redux-define");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_redux_define___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_redux_define__);
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var App = 'SMARTMORN';
+var ACTION_AUTH_DASH = Object(__WEBPACK_IMPORTED_MODULE_2_redux_define__["defineAction"])('AUTH_DASH', ['PENDING', 'RESOLVED', 'REJECTED', 'CLEAR'], App);
+console.log(ACTION_AUTH_DASH);
+var initialState = {
+  loading: false,
+  error: '',
+  message: ''
+};
+/* harmony default export */ __webpack_exports__["a"] = (function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case ACTION_AUTH_DASH.RESOLVED:
+      return _objectSpread({}, state, {
+        error: false,
+        message: action.payload.message
+      });
+
+    case ACTION_AUTH_DASH.PENDING:
+      return _objectSpread({}, state);
+
+    case ACTION_AUTH_DASH.REJECTED:
+      return _objectSpread({}, state);
+
+    case ACTION_AUTH_DASH.CLEAR:
+      return _objectSpread({}, state, {
+        message: false
+      });
+
+    default:
+      return state;
+  }
+});
+var actions = {
+  getData: function getData(state) {
+    return function (dispatch) {
+      dispatch({
+        type: ACTION_AUTH_DASH.PENDING
+      });
+      Object(__WEBPACK_IMPORTED_MODULE_1__utils_api__["a" /* default */])().post('/users/login', {
+        username: username,
+        password: password
+      }).then(function (resp) {
+        if (!resp.data.error) {
+          window.localStorage.setItem('SmartMornKey', resp.data.token);
+          return dispatch({
+            type: ACTION_AUTH_DASH.RESOLVED,
+            payload: {
+              message: false
+            }
+          });
+        } else {
+          return dispatch({
+            type: ACTION_AUTH_DASH.REJECTED,
+            payload: {
+              message: resp.data.message
+            }
+          });
+        }
+      }).catch(function (error) {
+        return dispatch({
+          type: ACTION_AUTH_DASH.REJECTED,
+          payload: {
+            message: 'Error : cannot connect to api server'
+          }
+        });
+      });
+    };
+  },
+  clearMessage: function clearMessage() {
+    return function (dispatch) {
+      dispatch({
+        type: ACTION_AUTH_DASH.CLEAR
+      });
+    };
+  }
+};
+
+/***/ }),
+
 /***/ "./redux/reducers/index.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -417,11 +778,130 @@ var actions = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__("redux");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_redux__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__auth__ = __webpack_require__("./redux/reducers/auth.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__alarm__ = __webpack_require__("./redux/reducers/alarm.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sleepSession__ = __webpack_require__("./redux/reducers/sleepSession.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__dashboard__ = __webpack_require__("./redux/reducers/dashboard.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__adjustment__ = __webpack_require__("./redux/reducers/adjustment.js");
+
+
+
+
 
 
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_0_redux__["combineReducers"])({
-  auth: __WEBPACK_IMPORTED_MODULE_1__auth__["a" /* default */]
+  auth: __WEBPACK_IMPORTED_MODULE_1__auth__["a" /* default */],
+  alarm: __WEBPACK_IMPORTED_MODULE_2__alarm__["b" /* default */],
+  sleep: __WEBPACK_IMPORTED_MODULE_3__sleepSession__["b" /* default */],
+  dashboard: __WEBPACK_IMPORTED_MODULE_4__dashboard__["a" /* default */],
+  adjustment: __WEBPACK_IMPORTED_MODULE_5__adjustment__["b" /* default */]
 }));
+
+/***/ }),
+
+/***/ "./redux/reducers/sleepSession.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return actions; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__("lodash");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_api__ = __webpack_require__("./utils/api.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_redux_define__ = __webpack_require__("redux-define");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_redux_define___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_redux_define__);
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var App = 'SMARTMORN';
+var ACTION_AUTH_SLEEP = Object(__WEBPACK_IMPORTED_MODULE_2_redux_define__["defineAction"])('AUTH_SLEEP', ['PENDING', 'RESOLVED', 'REJECTED', 'CLEAR'], App);
+console.log(ACTION_AUTH_SLEEP);
+var initialState = {
+  loading: false,
+  error: '',
+  message: ''
+};
+/* harmony default export */ __webpack_exports__["b"] = (function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case ACTION_AUTH_SLEEP.RESOLVED:
+      return _objectSpread({}, state, {
+        error: false,
+        message: action.payload.message
+      });
+
+    case ACTION_AUTH_SLEEP.PENDING:
+      return _objectSpread({}, state);
+
+    case ACTION_AUTH_SLEEP.REJECTED:
+      return _objectSpread({}, state);
+
+    case ACTION_AUTH_SLEEP.CLEAR:
+      return _objectSpread({}, state, {
+        message: false
+      });
+
+    default:
+      return state;
+  }
+});
+var actions = {
+  setSleepSession: function setSleepSession(state) {
+    return function (dispatch) {
+      console.log('work @ redux');
+      dispatch({
+        type: ACTION_AUTH_SLEEP.PENDING
+      });
+      Object(__WEBPACK_IMPORTED_MODULE_1__utils_api__["a" /* default */])().post('/users/setsleep', {
+        time: state.sleepTime
+      }).then(function (resp) {
+        if (!resp.data.error) {
+          dispatch({
+            type: ACTION_AUTH_SLEEP.RESOLVED,
+            payload: {
+              message: resp.data.message
+            }
+          });
+        } else {
+          dispatch({
+            type: ACTION_AUTH_SLEEP.REJECTED,
+            payload: {
+              message: resp.data.message
+            }
+          });
+        }
+      }).catch(function (error) {
+        return dispatch({
+          type: ACTION_AUTH_SLEEP.REJECTED,
+          payload: {
+            message: 'Error : cannot connect to api server'
+          }
+        });
+      });
+    };
+  },
+  clearMessage: function clearMessage() {
+    return function (dispatch) {
+      dispatch({
+        type: ACTION_AUTH_SLEEP.CLEAR
+      });
+    };
+  }
+}; // Debug 
+// export const login = (username,password) => (dispatch) => {
+//     const data = dispatch({
+//         type: 'Login',
+//         payload: {
+//             username: username,
+//             password: password
+//         }
+//     });
+//     console.log(data);
+// }
 
 /***/ }),
 
@@ -475,7 +955,7 @@ var actions = {
   return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.create({
     baseURL: 'http://localhost:8081/api/v1/',
     headers: {
-      'x-access-token': window.localStorage.getItem('smartKey') || ''
+      'x-access-token': localStorage.getItem('SmartMornKey') || ''
     }
   });
 }); // const handleResponse = (response) => {

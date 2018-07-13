@@ -67,7 +67,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -290,9 +290,11 @@ function (_Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_helper_Link__ = __webpack_require__("./utils/helper/Link.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_reactstrap__ = __webpack_require__("reactstrap");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_reactstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_reactstrap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_router__ = __webpack_require__("next/router");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_next_router__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_helper_Link__ = __webpack_require__("./utils/helper/Link.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_reactstrap__ = __webpack_require__("reactstrap");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_reactstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_reactstrap__);
 var _jsxFileName = "/Users/zendoro/Desktop/SmartMorn/SmartMorn-FrontEnd/components/Navbar.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -368,6 +370,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 
 
+
 var NavApp =
 /*#__PURE__*/
 function (_React$Component) {
@@ -387,6 +390,12 @@ function (_React$Component) {
   }
 
   _createClass(NavApp, [{
+    key: "logout",
+    value: function logout() {
+      localStorage.removeItem('SmartMornKey');
+      __WEBPACK_IMPORTED_MODULE_1_next_router___default.a.push('/login');
+    }
+  }, {
     key: "toggle",
     value: function toggle() {
       this.setState({
@@ -396,133 +405,127 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["Navbar"], {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["Navbar"], {
         color: "primary",
         dark: true,
         expand: "md",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 87
-        }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["NavbarBrand"], {
-        href: "/",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 88
-        }
-      }, "SmartMorn"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["NavbarToggler"], {
-        onClick: this.toggle,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 89
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["Collapse"], {
-        isOpen: this.state.isOpen,
-        navbar: true,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 90
-        }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["Nav"], {
-        className: "navbar-nav mr-auto mt-2 mt-lg-0",
-        navbar: true,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 91
-        }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["NavItem"], {
-        __source: {
-          fileName: _jsxFileName,
           lineNumber: 92
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__utils_helper_Link__["a" /* default */], {
-        href: "/dashboard",
-        activeClassName: "active",
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavbarBrand"], {
+        href: "/",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 93
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["NavLink"], {
+      }, "SmartMorn"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavbarToggler"], {
+        onClick: this.toggle,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 94
         }
-      }, "HOME"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["NavItem"], {
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["Collapse"], {
+        isOpen: this.state.isOpen,
+        navbar: true,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 95
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["Nav"], {
+        className: "navbar-nav mr-auto mt-2 mt-lg-0",
+        navbar: true,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 96
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavItem"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 97
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__utils_helper_Link__["a" /* default */], {
-        href: "/alarm",
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__utils_helper_Link__["a" /* default */], {
+        href: "/dashboard",
         activeClassName: "active",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 98
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["NavLink"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavLink"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 99
         }
-      }, "Alarm"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["NavItem"], {
+      }, "HOME"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavItem"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 102
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__utils_helper_Link__["a" /* default */], {
-        href: "/sleeping",
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__utils_helper_Link__["a" /* default */], {
+        href: "/alarm",
         activeClassName: "active",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 103
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["NavLink"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavLink"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 104
         }
-      }, "Sleep Setting"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["NavItem"], {
+      }, "Alarm"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavItem"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 107
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__utils_helper_Link__["a" /* default */], {
-        href: "/adjustment",
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__utils_helper_Link__["a" /* default */], {
+        href: "/sleeping",
         activeClassName: "active",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 108
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["NavLink"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavLink"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 109
         }
-      }, "ADJUSTMENT")))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["Nav"], {
-        className: "navbar-nav my-2 my-lg-0",
-        navbar: true,
+      }, "Sleep Setting"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavItem"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 112
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__utils_helper_Link__["a" /* default */], {
+        href: "/adjustment",
+        activeClassName: "active",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 113
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["NavItem"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavLink"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 114
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__utils_helper_Link__["a" /* default */], {
-        href: "/login",
-        activeClassName: "",
+      }, "ADJUSTMENT")))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["Nav"], {
+        className: "navbar-nav my-2 my-lg-0",
+        navbar: true,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 115
+          lineNumber: 118
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["NavLink"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavItem"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 116
+          lineNumber: 119
         }
-      }, "LOGOUT"))))));
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavLink"], {
+        onClick: this.logout,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 121
+        }
+      }, "LOGOUT")))));
     }
   }]);
 
@@ -549,12 +552,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components__ = __webpack_require__("styled-components");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_styled_components__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_reactstrap__ = __webpack_require__("reactstrap");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_reactstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_reactstrap__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Layout__ = __webpack_require__("./components/Layout.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_next_router__ = __webpack_require__("next/router");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_next_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_next_router__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_redux__ = __webpack_require__("redux");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_redux__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__redux_reducers_alarm__ = __webpack_require__("./redux/reducers/alarm.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_reactstrap__ = __webpack_require__("reactstrap");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_reactstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_reactstrap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_Layout__ = __webpack_require__("./components/Layout.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_redux__ = __webpack_require__("react-redux");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_react_redux__);
 var _jsxFileName = "/Users/zendoro/Desktop/SmartMorn/SmartMorn-FrontEnd/pages/alarm.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -564,9 +576,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
 
 
 
@@ -587,54 +603,100 @@ function (_React$Component) {
   _inherits(Alarm, _React$Component);
 
   function Alarm(props) {
+    var _this;
+
     _classCallCheck(this, Alarm);
 
-    return _possibleConstructorReturn(this, (Alarm.__proto__ || Object.getPrototypeOf(Alarm)).call(this, props));
+    _this = _possibleConstructorReturn(this, (Alarm.__proto__ || Object.getPrototypeOf(Alarm)).call(this, props));
+    Object.defineProperty(_assertThisInitialized(_this), "setAlarm", {
+      configurable: true,
+      enumerable: true,
+      writable: true,
+      value: function value(e) {
+        e.preventDefault();
+
+        _this.props.setAlarm(_this.state);
+      }
+    });
+    Object.defineProperty(_assertThisInitialized(_this), "handleChange", {
+      configurable: true,
+      enumerable: true,
+      writable: true,
+      value: function value(field) {
+        return function (e) {
+          _this.setState(_defineProperty({}, field, e.target.value));
+        };
+      }
+    });
+    _this.state = {
+      date: '',
+      time: ''
+    };
+
+    _this.checkLogin.bind(_assertThisInitialized(_this));
+
+    return _this;
   }
 
   _createClass(Alarm, [{
+    key: "checkLogin",
+    value: function checkLogin() {
+      var token = localStorage.getItem('SmartMornKey');
+      console.log(token);
+
+      if (!token) {
+        __WEBPACK_IMPORTED_MODULE_2_next_router___default.a.push('/login');
+      }
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.checkLogin();
+      this.props.clearMessage();
+    }
+  }, {
     key: "render",
     value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_Layout__["a" /* default */], {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__components_Layout__["a" /* default */], {
         title: "SmartMorn - Alarm",
         Navbar: true,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 29
+          lineNumber: 59
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Margin, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 30
+          lineNumber: 60
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["Row"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["Row"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 31
+          lineNumber: 61
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["Col"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["Col"], {
         md: {
           size: 6,
           offset: 3
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 32
+          lineNumber: 62
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["Card"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["Card"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 33
+          lineNumber: 63
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["CardBody"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["CardBody"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 34
+          lineNumber: 64
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h4", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 65
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", {
         className: "icon ion-md-time",
@@ -643,91 +705,104 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 65
         }
       }), " Alarm Setting"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 66
         }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
+      }), this.props.message && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["Alert"], {
+        color: "success",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 68
         }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["Form"], {
+      }, this.props.message), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 72
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["Form"], {
         method: "post",
+        onSubmit: this.setAlarm,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
+          lineNumber: 73
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["Row"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["Row"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
+          lineNumber: 74
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["Col"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["Col"], {
         md: "6",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
+          lineNumber: 75
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["FormGroup"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["FormGroup"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 76
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["Label"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["Label"], {
         "for": "username",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 40
+          lineNumber: 77
         }
-      }, "Date"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["Input"], {
+      }, "Date"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["Input"], {
         type: "date",
         name: "date",
         id: "date",
         placeholder: "date placeholder",
+        value: this.state.date,
+        onChange: this.handleChange('date'),
+        required: "true",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 41
+          lineNumber: 78
         }
-      }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["Col"], {
+      }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["Col"], {
         md: "6",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 44
+          lineNumber: 85
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["FormGroup"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["FormGroup"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 45
+          lineNumber: 86
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["Label"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["Label"], {
         "for": "username",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 46
+          lineNumber: 87
         }
-      }, "Time"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["Input"], {
+      }, "Time"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["Input"], {
         type: "time",
         name: "date",
         id: "date",
         placeholder: "date placeholder",
+        value: this.state.time,
+        onChange: this.handleChange('time'),
+        required: "true",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 47
+          lineNumber: 88
         }
       })))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 51
+          lineNumber: 96
         }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["Button"], {
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["Button"], {
         className: "btn-outline-info active",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 52
+          lineNumber: 97
         }
       }, "Set Alarm"))))))));
     }
@@ -736,7 +811,183 @@ function (_React$Component) {
   return Alarm;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Alarm);
+var mapStateToProps = function mapStateToProps(_ref) {
+  var alarm = _ref.alarm;
+  return {
+    message: alarm.message
+  };
+}; //console.log(Alarms)
+
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    setAlarm: Object(__WEBPACK_IMPORTED_MODULE_3_redux__["bindActionCreators"])(__WEBPACK_IMPORTED_MODULE_4__redux_reducers_alarm__["a" /* actions */].setAlarm, dispatch),
+    clearMessage: Object(__WEBPACK_IMPORTED_MODULE_3_redux__["bindActionCreators"])(__WEBPACK_IMPORTED_MODULE_4__redux_reducers_alarm__["a" /* actions */].clearMessage, dispatch)
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(__WEBPACK_IMPORTED_MODULE_7_react_redux__["connect"])(mapStateToProps, mapDispatchToProps)(Alarm));
+
+/***/ }),
+
+/***/ "./redux/reducers/alarm.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return actions; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__("lodash");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_api__ = __webpack_require__("./utils/api.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_redux_define__ = __webpack_require__("redux-define");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_redux_define___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_redux_define__);
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var App = 'SMARTMORN';
+var ACTION_AUTH_ALARM = Object(__WEBPACK_IMPORTED_MODULE_2_redux_define__["defineAction"])('AUTH_ALARM', ['PENDING', 'RESOLVED', 'REJECTED', 'CLEAR'], App);
+console.log(ACTION_AUTH_ALARM);
+var initialState = {
+  loading: false,
+  error: '',
+  message: ''
+};
+/* harmony default export */ __webpack_exports__["b"] = (function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case ACTION_AUTH_ALARM.RESOLVED:
+      return _objectSpread({}, state, {
+        error: false,
+        message: action.payload.message
+      });
+
+    case ACTION_AUTH_ALARM.PENDING:
+      return _objectSpread({}, state);
+
+    case ACTION_AUTH_ALARM.REJECTED:
+      return _objectSpread({}, state);
+
+    case ACTION_AUTH_ALARM.CLEAR:
+      return _objectSpread({}, state, {
+        message: false
+      });
+
+    default:
+      return state;
+  }
+});
+var actions = {
+  setAlarm: function setAlarm(state) {
+    return function (dispatch) {
+      console.log('work @ redux');
+      dispatch({
+        type: ACTION_AUTH_ALARM.PENDING
+      });
+      Object(__WEBPACK_IMPORTED_MODULE_1__utils_api__["a" /* default */])().post('/users/setalarm', {
+        date: state.date,
+        time: state.time
+      }).then(function (resp) {
+        if (!resp.data.error) {
+          dispatch({
+            type: ACTION_AUTH_ALARM.RESOLVED,
+            payload: {
+              message: resp.data.message
+            }
+          });
+        } else {
+          dispatch({
+            type: ACTION_AUTH_ALARM.REJECTED,
+            payload: {
+              message: resp.data.message
+            }
+          });
+        }
+      }).catch(function (error) {
+        return dispatch({
+          type: ACTION_AUTH_ALARM.REJECTED,
+          payload: {
+            message: 'Error : cannot connect to api server'
+          }
+        });
+      });
+    };
+  },
+  clearMessage: function clearMessage() {
+    return function (dispatch) {
+      dispatch({
+        type: ACTION_AUTH_ALARM.CLEAR
+      });
+    };
+  }
+}; // Debug 
+// export const login = (username,password) => (dispatch) => {
+//     const data = dispatch({
+//         type: 'Login',
+//         payload: {
+//             username: username,
+//             password: password
+//         }
+//     });
+//     console.log(data);
+// }
+
+/***/ }),
+
+/***/ "./utils/api.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__("axios");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+
+/* harmony default export */ __webpack_exports__["a"] = (function () {
+  return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.create({
+    baseURL: 'http://localhost:8081/api/v1/',
+    headers: {
+      'x-access-token': localStorage.getItem('SmartMornKey') || ''
+    }
+  });
+}); // const handleResponse = (response) => {
+//     if (response.data) {
+//         return Promise.resolve(response);
+//     }
+//     return Promise.reject(response);
+// };
+// const catchError = e => Promise.reject(e.response.data);
+// export default {
+//     get: path => (
+//         createApiInstance()
+//         .get(path)
+//         .then(handleResponse)
+//         .catch(catchError)
+//     ),
+//     post: (path, body = {}, headers = {}) => (
+//         createApiInstance()
+//         .request({
+//             url: path,
+//             method: 'POST',
+//             headers,
+//             data: body,
+//         })
+//         .then(handleResponse)
+//         .catch(catchError)
+//     ),
+//     put: (path, body = {}) => (
+//         createApiInstance()
+//         .request({
+//             url: path,
+//             method: 'PUT',
+//             data: body,
+//         })
+//         .then(handleResponse)
+//         .catch(catchError)
+//     ),
+// };
 
 /***/ }),
 
@@ -784,11 +1035,25 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 
 /***/ }),
 
-/***/ 3:
+/***/ 6:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/alarm.js");
 
+
+/***/ }),
+
+/***/ "axios":
+/***/ (function(module, exports) {
+
+module.exports = require("axios");
+
+/***/ }),
+
+/***/ "lodash":
+/***/ (function(module, exports) {
+
+module.exports = require("lodash");
 
 /***/ }),
 
@@ -820,10 +1085,31 @@ module.exports = require("react");
 
 /***/ }),
 
+/***/ "react-redux":
+/***/ (function(module, exports) {
+
+module.exports = require("react-redux");
+
+/***/ }),
+
 /***/ "reactstrap":
 /***/ (function(module, exports) {
 
 module.exports = require("reactstrap");
+
+/***/ }),
+
+/***/ "redux":
+/***/ (function(module, exports) {
+
+module.exports = require("redux");
+
+/***/ }),
+
+/***/ "redux-define":
+/***/ (function(module, exports) {
+
+module.exports = require("redux-define");
 
 /***/ }),
 

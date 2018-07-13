@@ -47,15 +47,15 @@ class Register extends Component {
     
     register = () => (e)  => {
         e.preventDefault();
-        this.props.register(this.state);
+        
     }
     handleChange = (field) => (e) => {
         this.setState({
             [field]: e.target.value
         })
     }
-    componentDidUpdate() {
-        
+    componentDidMount() {
+        this.props.clearMessageRegister();
     }
 	render() {
        
@@ -140,6 +140,7 @@ const mapStateToProps = ({ auth }) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    register: bindActionCreators(auth.Register,dispatch)
+    register: bindActionCreators(auth.Register,dispatch),
+    clearMessageRegister: bindActionCreators(auth.clearMessageRegister,dispatch)
 })
 export default connect(mapStateToProps,mapDispatchToProps)(Register);

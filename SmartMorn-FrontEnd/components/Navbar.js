@@ -58,6 +58,7 @@
 // export default Navbars
 
 import React from 'react';
+import Router from 'next/router';
 import Link from '../utils/helper/Link';
 import {
   Collapse,
@@ -76,7 +77,11 @@ class NavApp extends React.Component {
     this.state = {
       isOpen: false
     };
-  }
+	}
+	logout() {
+		localStorage.removeItem('SmartMornKey');
+		Router.push('/login');
+	}
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
@@ -112,9 +117,9 @@ class NavApp extends React.Component {
 				</Nav>
 				<Nav className="navbar-nav my-2 my-lg-0" navbar>
 					<NavItem>
-						<Link href="/login" activeClassName="">
-							<NavLink>LOGOUT</NavLink>
-						</Link>
+						{/* <Link href="/login" activeClassName=""> */}
+							<NavLink onClick={this.logout }>LOGOUT</NavLink>
+						{/* </Link> */}
 					</NavItem>
 				</Nav>
 			</Collapse>

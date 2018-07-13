@@ -9,13 +9,13 @@ import routes from './routes';
 import cors from 'cors';
 
 const app = express();
-sockerServer(app);
+
 
 app.use(cors({
 	'origin': '*',
 	'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
 	'preflightContinue': false
-  }));
+}));
 
 app.use(compression());
 app.use(bodyParser.json());
@@ -38,3 +38,4 @@ app.use('/', routes);
 app.listen(8081,() => {
 	console.log('listen on port : 8081')
 });
+sockerServer(app);

@@ -42,12 +42,25 @@ class LoginPage extends Component {
             username: '',
             password: '',
         };
+        this.checkLogin.bind(this);
     }
-
+    componentDidMount() {
+        this.checkLogin();
+        this.props.clearMessageLogin();
+    }
     componentDidUpdate() {
-        if(this.props.isLogin)
+        this.checkLogin();
+    }
+    
+    checkLogin() {
+        const token = localStorage.getItem('SmartMornKey');
+        if(token) {
             Router.push('/dashboard');
-
+            this.state = {
+                username: '',
+                password: ''
+            }
+        }
     }
 
     Login = (e) => {
@@ -126,7 +139,8 @@ const mapStateToProps = ({ auth }) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    login: bindActionCreators(auth.Login, dispatch)
+    login: bindActionCreators(auth.Login, dispatch),
+    clearMessageLogin: bindActionCreators(auth.clearMessageLogin,dispatch)
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(LoginPage);

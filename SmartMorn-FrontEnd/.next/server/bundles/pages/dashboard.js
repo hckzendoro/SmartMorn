@@ -290,9 +290,11 @@ function (_Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_helper_Link__ = __webpack_require__("./utils/helper/Link.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_reactstrap__ = __webpack_require__("reactstrap");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_reactstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_reactstrap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_router__ = __webpack_require__("next/router");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_next_router__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_helper_Link__ = __webpack_require__("./utils/helper/Link.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_reactstrap__ = __webpack_require__("reactstrap");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_reactstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_reactstrap__);
 var _jsxFileName = "/Users/zendoro/Desktop/SmartMorn/SmartMorn-FrontEnd/components/Navbar.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -368,6 +370,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 
 
+
 var NavApp =
 /*#__PURE__*/
 function (_React$Component) {
@@ -387,6 +390,12 @@ function (_React$Component) {
   }
 
   _createClass(NavApp, [{
+    key: "logout",
+    value: function logout() {
+      localStorage.removeItem('SmartMornKey');
+      __WEBPACK_IMPORTED_MODULE_1_next_router___default.a.push('/login');
+    }
+  }, {
     key: "toggle",
     value: function toggle() {
       this.setState({
@@ -396,133 +405,127 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["Navbar"], {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["Navbar"], {
         color: "primary",
         dark: true,
         expand: "md",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 87
-        }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["NavbarBrand"], {
-        href: "/",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 88
-        }
-      }, "SmartMorn"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["NavbarToggler"], {
-        onClick: this.toggle,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 89
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["Collapse"], {
-        isOpen: this.state.isOpen,
-        navbar: true,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 90
-        }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["Nav"], {
-        className: "navbar-nav mr-auto mt-2 mt-lg-0",
-        navbar: true,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 91
-        }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["NavItem"], {
-        __source: {
-          fileName: _jsxFileName,
           lineNumber: 92
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__utils_helper_Link__["a" /* default */], {
-        href: "/dashboard",
-        activeClassName: "active",
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavbarBrand"], {
+        href: "/",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 93
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["NavLink"], {
+      }, "SmartMorn"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavbarToggler"], {
+        onClick: this.toggle,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 94
         }
-      }, "HOME"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["NavItem"], {
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["Collapse"], {
+        isOpen: this.state.isOpen,
+        navbar: true,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 95
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["Nav"], {
+        className: "navbar-nav mr-auto mt-2 mt-lg-0",
+        navbar: true,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 96
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavItem"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 97
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__utils_helper_Link__["a" /* default */], {
-        href: "/alarm",
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__utils_helper_Link__["a" /* default */], {
+        href: "/dashboard",
         activeClassName: "active",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 98
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["NavLink"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavLink"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 99
         }
-      }, "Alarm"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["NavItem"], {
+      }, "HOME"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavItem"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 102
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__utils_helper_Link__["a" /* default */], {
-        href: "/sleeping",
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__utils_helper_Link__["a" /* default */], {
+        href: "/alarm",
         activeClassName: "active",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 103
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["NavLink"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavLink"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 104
         }
-      }, "Sleep Setting"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["NavItem"], {
+      }, "Alarm"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavItem"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 107
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__utils_helper_Link__["a" /* default */], {
-        href: "/adjustment",
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__utils_helper_Link__["a" /* default */], {
+        href: "/sleeping",
         activeClassName: "active",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 108
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["NavLink"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavLink"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 109
         }
-      }, "ADJUSTMENT")))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["Nav"], {
-        className: "navbar-nav my-2 my-lg-0",
-        navbar: true,
+      }, "Sleep Setting"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavItem"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 112
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__utils_helper_Link__["a" /* default */], {
+        href: "/adjustment",
+        activeClassName: "active",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 113
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["NavItem"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavLink"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 114
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__utils_helper_Link__["a" /* default */], {
-        href: "/login",
-        activeClassName: "",
+      }, "ADJUSTMENT")))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["Nav"], {
+        className: "navbar-nav my-2 my-lg-0",
+        navbar: true,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 115
+          lineNumber: 118
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["NavLink"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavItem"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 116
+          lineNumber: 119
         }
-      }, "LOGOUT"))))));
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavLink"], {
+        onClick: this.logout,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 121
+        }
+      }, "LOGOUT")))));
     }
   }]);
 
@@ -554,8 +557,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_chartjs_2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_react_chartjs_2__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_next_link__ = __webpack_require__("next/link");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_next_link___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_next_link__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_reactstrap__ = __webpack_require__("reactstrap");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_reactstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_reactstrap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_next_router__ = __webpack_require__("next/router");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_next_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_next_router__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_redux__ = __webpack_require__("react-redux");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react_redux__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_reactstrap__ = __webpack_require__("reactstrap");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_reactstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_reactstrap__);
 var _jsxFileName = "/Users/zendoro/Desktop/SmartMorn/SmartMorn-FrontEnd/pages/dashboard.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -568,13 +575,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 
 
+
+
+
+ //import { actions as auth  } from '../redux/reducers/auth'
 
 
 
@@ -582,7 +592,7 @@ var Margin = __WEBPACK_IMPORTED_MODULE_2_styled_components___default.a.div.withC
   displayName: "dashboard__Margin",
   componentId: "s13yx8pv-0"
 })(["margin-top:7vh;"]);
-var CardCustom = __WEBPACK_IMPORTED_MODULE_2_styled_components___default()(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["Card"]).withConfig({
+var CardCustom = __WEBPACK_IMPORTED_MODULE_2_styled_components___default()(__WEBPACK_IMPORTED_MODULE_7_reactstrap__["Card"]).withConfig({
   displayName: "dashboard__CardCustom",
   componentId: "s13yx8pv-1"
 })(["margin-bottom:15px;"]);
@@ -633,14 +643,32 @@ function (_React$Component) {
   _inherits(Dashboard, _React$Component);
 
   function Dashboard(props) {
+    var _this;
+
     _classCallCheck(this, Dashboard);
 
-    return _possibleConstructorReturn(this, (Dashboard.__proto__ || Object.getPrototypeOf(Dashboard)).call(this, props));
+    _this = _possibleConstructorReturn(this, (Dashboard.__proto__ || Object.getPrototypeOf(Dashboard)).call(this, props));
+
+    _this.checkLogin.bind(_assertThisInitialized(_this));
+
+    return _this;
   }
 
   _createClass(Dashboard, [{
+    key: "checkLogin",
+    value: function checkLogin() {
+      var token = localStorage.getItem('SmartMornKey');
+      console.log(token);
+
+      if (!token) {
+        __WEBPACK_IMPORTED_MODULE_5_next_router___default.a.push('/login');
+      }
+    }
+  }, {
     key: "componentDidMount",
-    value: function componentDidMount() {}
+    value: function componentDidMount() {
+      this.checkLogin();
+    }
   }, {
     key: "render",
     value: function render() {
@@ -649,205 +677,205 @@ function (_React$Component) {
         Navbar: true,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 102
+          lineNumber: 114
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Margin, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 103
+          lineNumber: 115
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["Row"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_reactstrap__["Row"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 104
+          lineNumber: 116
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["Col"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_reactstrap__["Col"], {
         md: {
           size: 12
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 105
+          lineNumber: 117
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CardCustom, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 106
+          lineNumber: 118
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["CardBody"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_reactstrap__["CardBody"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 107
+          lineNumber: 119
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["CardTitle"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_reactstrap__["CardTitle"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 108
+          lineNumber: 120
         }
-      }, "Alam Set @ 8.30 AM"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["CardSubtitle"], {
+      }, "Alam Set @ 8.30 AM"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_reactstrap__["CardSubtitle"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 109
+          lineNumber: 121
         }
       }, "Last Synced  @ 2:32 PM"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         align: "right",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 110
+          lineNumber: 122
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_next_link___default.a, {
         href: "/alarm",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 111
+          lineNumber: 123
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["Button"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_reactstrap__["Button"], {
         className: "btn-outline-success active",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 112
+          lineNumber: 124
         }
-      }, "Set Alarm"))))))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["Row"], {
+      }, "Set Alarm"))))))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_reactstrap__["Row"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 119
+          lineNumber: 131
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["Col"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_reactstrap__["Col"], {
         md: {
           size: 4
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 120
+          lineNumber: 132
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CardCustom, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 121
+          lineNumber: 133
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["CardBody"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_reactstrap__["CardBody"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 122
+          lineNumber: 134
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["CardTitle"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_reactstrap__["CardTitle"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 123
+          lineNumber: 135
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("b", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 123
+          lineNumber: 135
         }
-      }, "Today")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["CardSubtitle"], {
+      }, "Today")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_reactstrap__["CardSubtitle"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 124
+          lineNumber: 136
         }
       }, "Last Synced  @ 2:32 PM"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 125
+          lineNumber: 137
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_chartjs_2__["Line"], {
         data: data,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 126
+          lineNumber: 138
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 127
+          lineNumber: 139
         }
-      })))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["Col"], {
+      })))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_reactstrap__["Col"], {
         md: {
           size: 4
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 131
+          lineNumber: 143
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CardCustom, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 132
+          lineNumber: 144
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["CardBody"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_reactstrap__["CardBody"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 133
+          lineNumber: 145
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["CardTitle"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_reactstrap__["CardTitle"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 134
+          lineNumber: 146
         }
-      }, "Temperature"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["CardSubtitle"], {
+      }, "Temperature"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_reactstrap__["CardSubtitle"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 135
+          lineNumber: 147
         }
       }, "Last Synced  @ 2:32 PM"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 136
+          lineNumber: 148
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_chartjs_2__["Doughnut"], {
         data: datas,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 137
+          lineNumber: 149
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 138
+          lineNumber: 150
         }
-      })))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["Col"], {
+      })))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_reactstrap__["Col"], {
         md: {
           size: 4
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 142
+          lineNumber: 154
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CardCustom, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 143
+          lineNumber: 155
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["CardBody"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_reactstrap__["CardBody"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 144
+          lineNumber: 156
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["CardTitle"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_reactstrap__["CardTitle"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 145
+          lineNumber: 157
         }
-      }, "Noise Detected"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["CardSubtitle"], {
+      }, "Noise Detected"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_reactstrap__["CardSubtitle"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 146
+          lineNumber: 158
         }
       }, "Last Synced  @ 2:32 PM"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 147
+          lineNumber: 159
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_chartjs_2__["Pie"], {
         data: datapie,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 148
+          lineNumber: 160
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 149
+          lineNumber: 161
         }
       })))))));
     }
@@ -856,7 +884,16 @@ function (_React$Component) {
   return Dashboard;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Dashboard);
+var mapStateToProps = function mapStateToProps(_ref) {
+  var dashboard = _ref.dashboard;
+  return {};
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {};
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(__WEBPACK_IMPORTED_MODULE_6_react_redux__["connect"])(mapStateToProps, mapDispatchToProps)(Dashboard));
 
 /***/ }),
 
@@ -944,6 +981,13 @@ module.exports = require("react");
 /***/ (function(module, exports) {
 
 module.exports = require("react-chartjs-2");
+
+/***/ }),
+
+/***/ "react-redux":
+/***/ (function(module, exports) {
+
+module.exports = require("react-redux");
 
 /***/ }),
 

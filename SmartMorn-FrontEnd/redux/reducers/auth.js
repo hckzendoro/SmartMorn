@@ -5,8 +5,8 @@ import { defineAction } from 'redux-define';
 
 const App = 'SMARTMORN';
 
-const ACTION_AUTH_LOGIN = defineAction('AUTH_LOGIN', ['PENDING', 'RESOLVED', 'REJECTED'], App);
-const ACTION_AUTH_REGISTER = defineAction('AUTH_REGISTER', ['PENDING', 'RESOLVED', 'REJECTED'], App);
+const ACTION_AUTH_LOGIN = defineAction('AUTH_LOGIN', ['PENDING', 'RESOLVED', 'REJECTED','CLEAR'], App);
+const ACTION_AUTH_REGISTER = defineAction('AUTH_REGISTER', ['PENDING', 'RESOLVED', 'REJECTED','CLEAR'], App);
 console.log(ACTION_AUTH_REGISTER);
 const initialState = {
     isLogin: false,
@@ -22,7 +22,8 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 isLogin: !state.isLogin,
-                loading: false
+                loading: false,
+                messageLogin: action.payload.message
             };
         case ACTION_AUTH_LOGIN.PENDING: 
             return {
@@ -51,7 +52,19 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 messageRegister: action.payload.message,
-                error: false
+                error: false,
+            }
+        case ACTION_AUTH_REGISTER.CLEAR: 
+            return {
+                ...state,
+                messageRegister: false,
+                error: false,
+            }
+        case ACTION_AUTH_LOGIN.CLEAR: 
+            return {
+                ...state,
+                messageLogin: false,
+                error: false,
             }
         default: return state;
     }
@@ -69,7 +82,10 @@ export const actions = {
             if(!resp.data.error) {
                 window.localStorage.setItem('SmartMornKey', resp.data.token);
                 return dispatch({ 
-                    type: ACTION_AUTH_LOGIN.RESOLVED
+                    type: ACTION_AUTH_LOGIN.RESOLVED,
+                    payload: {
+                        message: false
+                    }
                 });
                 
             } else {
@@ -112,7 +128,8 @@ export const actions = {
                 return dispatch({ 
                     type: ACTION_AUTH_REGISTER.RESOLVED,
                     payload: {
-                        message: resp.data.message
+                        message: resp.data.message,
+
                     }
                 });
                 
@@ -132,6 +149,16 @@ export const actions = {
                 }
             });
         });
+    },
+    clearMessageLogin: () => (dispatch) => {
+        dispatch({
+            type: ACTION_AUTH_LOGIN.CLEAR
+        })
+    },
+    clearMessageRegister: () => (dispatch) => {
+        dispatch({
+            type: ACTION_AUTH_REGISTER.CLEAR
+        })
     }
 };
 

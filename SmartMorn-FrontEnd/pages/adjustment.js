@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Router from 'next/router';
 import {
     Col,
     Row,
@@ -9,9 +10,14 @@ import {
     Form,
     FormGroup,
     Label,
-    Button
+    Button,
+    Alert
 } from 'reactstrap';
 import Layout from '../components/Layout';
+import { actions as adjust  } from '../redux/reducers/adjustment'
+import { connect } from "react-redux";
+import { bindActionCreators } from '../node_modules/redux';
+
 
 const Margin = styled.div`
     margin-top: 7vh;
@@ -20,6 +26,26 @@ const Margin = styled.div`
 class PillowAdjustment extends React.Component {
     constructor(props) {
         super(props);
+        this.checkLogin.bind(this);
+        this.state = {
+
+        }
+    }
+    checkLogin() {
+        const token = localStorage.getItem('SmartMornKey');
+        console.log(token)
+        if(!token) {
+            Router.push('/login');
+        }
+    }
+    componentDidMount() {
+        this.checkLogin();
+    }
+    turnOnMC = () => (e) => {
+        this.props.turnOn(this.state);
+    }
+    turnOffMC = () => (e) => {
+        this.props.turnOff(this.state);
     }
     render() {
         return (
@@ -29,12 +55,16 @@ class PillowAdjustment extends React.Component {
                         <Col md={{ size: 6, offset: 3 }}>
                             <Card>
                                 <CardBody>
-                                    <h4><i className="icon ion-md-settings" style={{ fontSize: '35px' }}></i> Pillow Adjustment</h4><br/><br/>
-                                    <Form method="post">
-                                        <center>
-                                            <Button className="btn-outline-info active" >Turn On</Button> | <Button className="btn-outline-warning active" >Turn Off</Button>
-                                        </center>
-                                    </Form>
+                                    <h4><i className="icon ion-md-settings" style={{ fontSize: '35px' }}></i> Pillow Adjustment</h4><br/>
+                                    { this.props.message && 
+                                        <Alert color="success">
+                                            {this.props.message}
+                                        </Alert>
+                                    }
+                                    <br/>
+                                    <center>
+                                        <Button className="btn-outline-info active" onClick={this.turnOnMC()}>Turn On</Button> | <Button className="btn-outline-warning active" onClick={this.turnOffMC()}>Turn Off</Button>
+                                    </center>
                                 </CardBody>
                             </Card>
                         </Col>
@@ -44,5 +74,13 @@ class PillowAdjustment extends React.Component {
         );
     }
 }
+const mapStateToProps = ({ adjustment }) => ({
+    message: adjustment.message
+})
 
-export default PillowAdjustment;
+const mapDispatchToProps = (dispatch) => ({
+    turnOn: bindActionCreators(adjust.turnOn,dispatch),
+    turnOff: bindActionCreators(adjust.turnOff,dispatch),
+})
+
+export default connect(mapStateToProps,mapDispatchToProps)(PillowAdjustment);

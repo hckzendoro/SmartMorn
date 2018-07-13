@@ -3,7 +3,7 @@ import axios from 'axios';
 export default () => axios.create({
         baseURL: 'http://localhost:8081/api/v1/',
         headers: {
-            'x-access-token': window.localStorage.getItem('smartKey') || ''
+            'x-access-token': localStorage.getItem('SmartMornKey') || ''
         }
     });
 
