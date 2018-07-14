@@ -38,8 +38,9 @@ var _cors2 = _interopRequireDefault(_cors);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+require('events').EventEmitter.defaultMaxListeners = 0;
+
 var app = (0, _express2.default)();
-(0, _socket2.default)(app);
 
 app.use((0, _cors2.default)({
   'origin': '*',
@@ -67,4 +68,6 @@ app.use('/', _routes2.default);
 app.listen(8081, function () {
   console.log('listen on port : 8081');
 });
+
+(0, _socket2.default)(app);
 //# sourceMappingURL=server.js.map

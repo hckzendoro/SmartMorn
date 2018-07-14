@@ -47,7 +47,7 @@ class Register extends Component {
     
     register = () => (e)  => {
         e.preventDefault();
-        
+        this.props.register(this.state);
     }
     handleChange = (field) => (e) => {
         this.setState({

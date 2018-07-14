@@ -1,3 +1,5 @@
+import moment from 'moment';
+import db from '../utils/database';
 export default (app) => {
 	const server = require('http').createServer(app);  
 	const io = require('socket.io')(server);
@@ -31,13 +33,37 @@ export default (app) => {
 			message: 'adjustment_off success'
 		})
 	});
-	app.get('/api/v1/alarm/on',(req,res) => {
+	// app.get('/api/v1/alarm/on',(req,res) => {
+
+	// 	io.emit('messageType','alarm_on');
+	// 	res.json({
+	// 		error: false,
+	// 		message: 'alarm_on success'
+	// 	})
+	// })
+
+	let time;
+    const tmpFuc = () => {
+		clearInterval(time)
 		
-		io.emit('messageType','alarm_on');
-		res.json({
-			error: false,
-			message: 'alarm_on success'
-		})
-	})
-	
-}
+		let date = moment().format('YYYY-MM-DD HH:mm:00');
+		console.log(date);
+		db('SELECT * FROM `config` WHERE `alarm` = ? and (alarm != activeAlarm)',[ 
+			date
+		],(returnData) => {
+			if(returnData.length > 0) {
+				db('UPDATE `config` SET `activeAlarm` = ? ',[ 
+					returnData[0].alarm
+				],(returnUpdate) => {
+					console.log('start emit')
+					io.emit('messageType','alarm_on');
+					time =  setTimeout(tmpFuc,5000);
+				});	
+			} else {
+				console.log('Skip');
+				time =  setTimeout(tmpFuc,5000);
+			}
+		});
+    }
+    time = setTimeout(tmpFuc,10);
+};

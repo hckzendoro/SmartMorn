@@ -1,5 +1,4 @@
 import { Router } from 'express';
-import { login, register } from '../controllers/auth';
 import { setalarm } from '../controllers/alarm';
 import { setSleep } from '../controllers/sleepSession';
 import { login, register} from '../controllers/auth';
@@ -14,9 +13,13 @@ router.post('/register',register);
 router.get('/graph',graph);
 router.get('/pie1',pie1);
 router.get('/pie2',pie2);
-// router.get('/info',(req,res) => {
-// 	res.send('info');
-// });
+router.get('/info',(req,res) => {
+    console.log(req.sessionID);
+	res.json({
+        error: false,
+        message: ''
+    });
+});
 
 router.post('/setalarm',setalarm);
 router.post('/setsleep',setSleep);

@@ -8,8 +8,9 @@ import sockerServer from './controllers/socket.IO';
 import routes from './routes';
 import cors from 'cors';
 
-const app = express();
+require('events').EventEmitter.defaultMaxListeners = 0;
 
+const app = express();
 
 app.use(cors({
 	'origin': '*',
@@ -38,4 +39,6 @@ app.use('/', routes);
 app.listen(8081,() => {
 	console.log('listen on port : 8081')
 });
+
 sockerServer(app);
+

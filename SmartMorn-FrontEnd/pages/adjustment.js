@@ -18,12 +18,14 @@ import { actions as adjust  } from '../redux/reducers/adjustment'
 import { connect } from "react-redux";
 import { bindActionCreators } from '../node_modules/redux';
 
-
 const Margin = styled.div`
     margin-top: 7vh;
 `;
 
 class PillowAdjustment extends React.Component {
+    static async getInitialProps(ctx) {
+
+    }
     constructor(props) {
         super(props);
         this.checkLogin.bind(this);
@@ -40,6 +42,7 @@ class PillowAdjustment extends React.Component {
     }
     componentDidMount() {
         this.checkLogin();
+        this.props.clearMessage();
     }
     turnOnMC = () => (e) => {
         this.props.turnOn(this.state);
@@ -81,6 +84,7 @@ const mapStateToProps = ({ adjustment }) => ({
 const mapDispatchToProps = (dispatch) => ({
     turnOn: bindActionCreators(adjust.turnOn,dispatch),
     turnOff: bindActionCreators(adjust.turnOff,dispatch),
+    clearMessage: bindActionCreators(adjust.clearMessage,dispatch)
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(PillowAdjustment);

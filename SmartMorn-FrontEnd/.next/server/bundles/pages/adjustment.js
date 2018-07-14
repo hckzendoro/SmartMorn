@@ -67,7 +67,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -161,20 +161,34 @@ var Header = function Header(props) {
       lineNumber: 7
     }
   }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("link", {
+    rel: "preload",
+    as: "style",
     href: "https://unpkg.com/ionicons@4.2.4/dist/css/ionicons.min.css",
-    rel: "stylesheet",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 9
     }
   }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("link", {
-    rel: "stylesheet",
+    rel: "preload",
+    as: "style",
     href: "https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css",
-    integrity: "sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX",
-    crossorigin: "anonymous",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 10
+    }
+  }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("link", {
+    rel: "stylesheet",
+    href: "https://unpkg.com/ionicons@4.2.4/dist/css/ionicons.min.css",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11
+    }
+  }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("link", {
+    rel: "stylesheet",
+    href: "https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12
     }
   }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("style", {
     dangerouslySetInnerHTML: {
@@ -182,7 +196,7 @@ var Header = function Header(props) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 13
     }
   }));
 };
@@ -387,15 +401,14 @@ function (_React$Component) {
       isOpen: false
     };
     return _this;
-  }
+  } // logout() {
+  // 	console.log('work')
+  // 	localStorage.removeItem('SmartMornKey');
+  // 	Router.push('/login');
+  // }
+
 
   _createClass(NavApp, [{
-    key: "logout",
-    value: function logout() {
-      localStorage.removeItem('SmartMornKey');
-      __WEBPACK_IMPORTED_MODULE_1_next_router___default.a.push('/login');
-    }
-  }, {
     key: "toggle",
     value: function toggle() {
       this.setState({
@@ -411,121 +424,127 @@ function (_React$Component) {
         expand: "md",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 92
+          lineNumber: 93
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavbarBrand"], {
         href: "/",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 93
+          lineNumber: 94
         }
       }, "SmartMorn"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavbarToggler"], {
         onClick: this.toggle,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 94
+          lineNumber: 95
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["Collapse"], {
         isOpen: this.state.isOpen,
         navbar: true,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 95
+          lineNumber: 96
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["Nav"], {
         className: "navbar-nav mr-auto mt-2 mt-lg-0",
         navbar: true,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 96
+          lineNumber: 97
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavItem"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 97
+          lineNumber: 98
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__utils_helper_Link__["a" /* default */], {
         href: "/dashboard",
         activeClassName: "active",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 98
+          lineNumber: 99
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavLink"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 99
+          lineNumber: 100
         }
       }, "HOME"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavItem"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 102
+          lineNumber: 103
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__utils_helper_Link__["a" /* default */], {
         href: "/alarm",
         activeClassName: "active",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 103
+          lineNumber: 104
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavLink"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 104
+          lineNumber: 105
         }
       }, "Alarm"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavItem"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 107
+          lineNumber: 108
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__utils_helper_Link__["a" /* default */], {
         href: "/sleeping",
         activeClassName: "active",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 108
+          lineNumber: 109
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavLink"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 109
+          lineNumber: 110
         }
       }, "Sleep Setting"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavItem"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 112
+          lineNumber: 113
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__utils_helper_Link__["a" /* default */], {
         href: "/adjustment",
         activeClassName: "active",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 113
+          lineNumber: 114
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavLink"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 114
+          lineNumber: 115
         }
       }, "ADJUSTMENT")))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["Nav"], {
         className: "navbar-nav my-2 my-lg-0",
         navbar: true,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 118
+          lineNumber: 119
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavItem"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 119
+          lineNumber: 120
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavLink"], {
-        onClick: this.logout,
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__utils_helper_Link__["a" /* default */], {
+        href: "/logout",
+        activeClassName: "active",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 121
         }
-      }, "LOGOUT")))));
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["NavLink"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 122
+        }
+      }, "LOGOUT"))))));
     }
   }]);
 
@@ -1152,30 +1171,35 @@ if ("development" !== 'production' && typeof isCrushed.name === 'string' && isCr
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components__ = __webpack_require__("styled-components");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_styled_components__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_next_router__ = __webpack_require__("next/router");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_next_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_next_router__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_reactstrap__ = __webpack_require__("reactstrap");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_reactstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_reactstrap__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Layout__ = __webpack_require__("./components/Layout.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__redux_reducers_adjustment__ = __webpack_require__("./redux/reducers/adjustment.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_redux__ = __webpack_require__("react-redux");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react_redux__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__node_modules_redux__ = __webpack_require__("./node_modules/redux/es/redux.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator__ = __webpack_require__("@babel/runtime/regenerator");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__("react");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_styled_components__ = __webpack_require__("styled-components");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_styled_components___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_styled_components__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_next_router__ = __webpack_require__("next/router");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_next_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_next_router__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_reactstrap__ = __webpack_require__("reactstrap");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_reactstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_reactstrap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Layout__ = __webpack_require__("./components/Layout.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__redux_reducers_adjustment__ = __webpack_require__("./redux/reducers/adjustment.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_redux__ = __webpack_require__("react-redux");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_react_redux__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__node_modules_redux__ = __webpack_require__("./node_modules/redux/es/redux.js");
+
 var _jsxFileName = "/Users/zendoro/Desktop/SmartMorn/SmartMorn-FrontEnd/pages/adjustment.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } } function _next(value) { step("next", value); } function _throw(err) { step("throw", err); } _next(); }); }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
@@ -1189,7 +1213,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 
 
-var Margin = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div.withConfig({
+var Margin = __WEBPACK_IMPORTED_MODULE_2_styled_components___default.a.div.withConfig({
   displayName: "adjustment__Margin",
   componentId: "s81useu-0"
 })(["margin-top:7vh;"]);
@@ -1198,6 +1222,29 @@ var PillowAdjustment =
 /*#__PURE__*/
 function (_React$Component) {
   _inherits(PillowAdjustment, _React$Component);
+
+  _createClass(PillowAdjustment, null, [{
+    key: "getInitialProps",
+    value: function () {
+      var _getInitialProps = _asyncToGenerator(
+      /*#__PURE__*/
+      __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee(ctx) {
+        return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      return function getInitialProps(_x) {
+        return _getInitialProps.apply(this, arguments);
+      };
+    }()
+  }]);
 
   function PillowAdjustment(props) {
     var _this;
@@ -1239,108 +1286,109 @@ function (_React$Component) {
       console.log(token);
 
       if (!token) {
-        __WEBPACK_IMPORTED_MODULE_2_next_router___default.a.push('/login');
+        __WEBPACK_IMPORTED_MODULE_3_next_router___default.a.push('/login');
       }
     }
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.checkLogin();
+      this.props.clearMessage();
     }
   }, {
     key: "render",
     value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_Layout__["a" /* default */], {
+      return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__components_Layout__["a" /* default */], {
         title: "SmartMorn - PillowAdjustment",
         Navbar: true,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 52
+          lineNumber: 55
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Margin, {
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(Margin, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 53
+          lineNumber: 56
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["Row"], {
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_reactstrap__["Row"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 54
+          lineNumber: 57
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["Col"], {
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_reactstrap__["Col"], {
         md: {
           size: 6,
           offset: 3
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 55
-        }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["Card"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 56
-        }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["CardBody"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 57
-        }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h4", {
-        __source: {
-          fileName: _jsxFileName,
           lineNumber: 58
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", {
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_reactstrap__["Card"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 59
+        }
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_reactstrap__["CardBody"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 60
+        }
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("h4", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 61
+        }
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("i", {
         className: "icon ion-md-settings",
         style: {
           fontSize: '35px'
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 58
+          lineNumber: 61
         }
-      }), " Pillow Adjustment"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
+      }), " Pillow Adjustment"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 58
+          lineNumber: 61
         }
-      }), this.props.message && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["Alert"], {
+      }), this.props.message && __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_reactstrap__["Alert"], {
         color: "success",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 60
+          lineNumber: 63
         }
-      }, this.props.message), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
+      }, this.props.message), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 64
+          lineNumber: 67
         }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("center", {
+      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("center", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 65
+          lineNumber: 68
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["Button"], {
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_reactstrap__["Button"], {
         className: "btn-outline-info active",
         onClick: this.turnOnMC(),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 66
+          lineNumber: 69
         }
-      }, "Turn On"), " | ", __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["Button"], {
+      }, "Turn On"), " | ", __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_reactstrap__["Button"], {
         className: "btn-outline-warning active",
         onClick: this.turnOffMC(),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 66
+          lineNumber: 69
         }
       }, "Turn Off"))))))));
     }
   }]);
 
   return PillowAdjustment;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+}(__WEBPACK_IMPORTED_MODULE_1_react___default.a.Component);
 
 var mapStateToProps = function mapStateToProps(_ref) {
   var adjustment = _ref.adjustment;
@@ -1351,12 +1399,13 @@ var mapStateToProps = function mapStateToProps(_ref) {
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    turnOn: Object(__WEBPACK_IMPORTED_MODULE_7__node_modules_redux__["a" /* bindActionCreators */])(__WEBPACK_IMPORTED_MODULE_5__redux_reducers_adjustment__["a" /* actions */].turnOn, dispatch),
-    turnOff: Object(__WEBPACK_IMPORTED_MODULE_7__node_modules_redux__["a" /* bindActionCreators */])(__WEBPACK_IMPORTED_MODULE_5__redux_reducers_adjustment__["a" /* actions */].turnOff, dispatch)
+    turnOn: Object(__WEBPACK_IMPORTED_MODULE_8__node_modules_redux__["a" /* bindActionCreators */])(__WEBPACK_IMPORTED_MODULE_6__redux_reducers_adjustment__["a" /* actions */].turnOn, dispatch),
+    turnOff: Object(__WEBPACK_IMPORTED_MODULE_8__node_modules_redux__["a" /* bindActionCreators */])(__WEBPACK_IMPORTED_MODULE_6__redux_reducers_adjustment__["a" /* actions */].turnOff, dispatch),
+    clearMessage: Object(__WEBPACK_IMPORTED_MODULE_8__node_modules_redux__["a" /* bindActionCreators */])(__WEBPACK_IMPORTED_MODULE_6__redux_reducers_adjustment__["a" /* actions */].clearMessage, dispatch)
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(__WEBPACK_IMPORTED_MODULE_6_react_redux__["connect"])(mapStateToProps, mapDispatchToProps)(PillowAdjustment));
+/* harmony default export */ __webpack_exports__["default"] = (Object(__WEBPACK_IMPORTED_MODULE_7_react_redux__["connect"])(mapStateToProps, mapDispatchToProps)(PillowAdjustment));
 
 /***/ }),
 
@@ -1582,11 +1631,18 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 
 /***/ }),
 
-/***/ 3:
+/***/ 7:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/adjustment.js");
 
+
+/***/ }),
+
+/***/ "@babel/runtime/regenerator":
+/***/ (function(module, exports) {
+
+module.exports = require("@babel/runtime/regenerator");
 
 /***/ }),
 

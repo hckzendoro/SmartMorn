@@ -1,7 +1,7 @@
 module.exports =
 __NEXT_REGISTER_PAGE('/alarm', function() {
           var comp =
-      webpackJsonp([7],{
+      webpackJsonp([6],{
 
 /***/ "./components/Footer.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -92,20 +92,34 @@ var Header = function Header(props) {
       lineNumber: 7
     }
   }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("link", {
+    rel: "preload",
+    as: "style",
     href: "https://unpkg.com/ionicons@4.2.4/dist/css/ionicons.min.css",
-    rel: "stylesheet",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 9
     }
   }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("link", {
-    rel: "stylesheet",
+    rel: "preload",
+    as: "style",
     href: "https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css",
-    integrity: "sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX",
-    crossorigin: "anonymous",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 10
+    }
+  }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("link", {
+    rel: "stylesheet",
+    href: "https://unpkg.com/ionicons@4.2.4/dist/css/ionicons.min.css",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11
+    }
+  }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("link", {
+    rel: "stylesheet",
+    href: "https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12
     }
   }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("style", {
     dangerouslySetInnerHTML: {
@@ -113,7 +127,7 @@ var Header = function Header(props) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 13
     }
   }));
 };
@@ -160,7 +174,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-Object(__WEBPACK_IMPORTED_MODULE_2_styled_components__["c" /* injectGlobal */])(_templateObject);
+Object(__WEBPACK_IMPORTED_MODULE_2_styled_components__["b" /* injectGlobal */])(_templateObject);
 
 var Layout =
 /*#__PURE__*/
@@ -192,7 +206,7 @@ function (_Component) {
           fileName: _jsxFileName,
           lineNumber: 23
         }
-      }) : '', __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_reactstrap__["i" /* Container */], {
+      }) : '', __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_reactstrap__["g" /* Container */], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 24
@@ -315,15 +329,14 @@ function (_React$Component) {
       isOpen: false
     };
     return _this;
-  }
+  } // logout() {
+  // 	console.log('work')
+  // 	localStorage.removeItem('SmartMornKey');
+  // 	Router.push('/login');
+  // }
+
 
   _createClass(NavApp, [{
-    key: "logout",
-    value: function logout() {
-      localStorage.removeItem('SmartMornKey');
-      __WEBPACK_IMPORTED_MODULE_1_next_router___default.a.push('/login');
-    }
-  }, {
     key: "toggle",
     value: function toggle() {
       this.setState({
@@ -333,127 +346,133 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["q" /* Navbar */], {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["o" /* Navbar */], {
         color: "primary",
         dark: true,
         expand: "md",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 92
-        }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["r" /* NavbarBrand */], {
-        href: "/",
-        __source: {
-          fileName: _jsxFileName,
           lineNumber: 93
         }
-      }, "SmartMorn"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["s" /* NavbarToggler */], {
-        onClick: this.toggle,
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["p" /* NavbarBrand */], {
+        href: "/",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 94
         }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["h" /* Collapse */], {
-        isOpen: this.state.isOpen,
-        navbar: true,
+      }, "SmartMorn"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["q" /* NavbarToggler */], {
+        onClick: this.toggle,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 95
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["n" /* Nav */], {
-        className: "navbar-nav mr-auto mt-2 mt-lg-0",
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["f" /* Collapse */], {
+        isOpen: this.state.isOpen,
         navbar: true,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 96
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["o" /* NavItem */], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["l" /* Nav */], {
+        className: "navbar-nav mr-auto mt-2 mt-lg-0",
+        navbar: true,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 97
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["m" /* NavItem */], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 98
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__utils_helper_Link__["a" /* default */], {
         href: "/dashboard",
         activeClassName: "active",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 98
-        }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["p" /* NavLink */], {
-        __source: {
-          fileName: _jsxFileName,
           lineNumber: 99
         }
-      }, "HOME"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["o" /* NavItem */], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["n" /* NavLink */], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 102
+          lineNumber: 100
+        }
+      }, "HOME"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["m" /* NavItem */], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 103
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__utils_helper_Link__["a" /* default */], {
         href: "/alarm",
         activeClassName: "active",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 103
-        }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["p" /* NavLink */], {
-        __source: {
-          fileName: _jsxFileName,
           lineNumber: 104
         }
-      }, "Alarm"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["o" /* NavItem */], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["n" /* NavLink */], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 107
+          lineNumber: 105
+        }
+      }, "Alarm"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["m" /* NavItem */], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 108
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__utils_helper_Link__["a" /* default */], {
         href: "/sleeping",
         activeClassName: "active",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 108
-        }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["p" /* NavLink */], {
-        __source: {
-          fileName: _jsxFileName,
           lineNumber: 109
         }
-      }, "Sleep Setting"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["o" /* NavItem */], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["n" /* NavLink */], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 112
+          lineNumber: 110
+        }
+      }, "Sleep Setting"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["m" /* NavItem */], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 113
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__utils_helper_Link__["a" /* default */], {
         href: "/adjustment",
         activeClassName: "active",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 113
-        }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["p" /* NavLink */], {
-        __source: {
-          fileName: _jsxFileName,
           lineNumber: 114
         }
-      }, "ADJUSTMENT")))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["n" /* Nav */], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["n" /* NavLink */], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 115
+        }
+      }, "ADJUSTMENT")))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["l" /* Nav */], {
         className: "navbar-nav my-2 my-lg-0",
         navbar: true,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 118
-        }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["o" /* NavItem */], {
-        __source: {
-          fileName: _jsxFileName,
           lineNumber: 119
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["p" /* NavLink */], {
-        onClick: this.logout,
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["m" /* NavItem */], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 120
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__utils_helper_Link__["a" /* default */], {
+        href: "/logout",
+        activeClassName: "active",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 121
         }
-      }, "LOGOUT")))));
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_reactstrap__["n" /* NavLink */], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 122
+        }
+      }, "LOGOUT"))))));
     }
   }]);
 
@@ -25229,16 +25248,16 @@ function warning(message) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Alert; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return Container; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return Row; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return Col; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return Navbar; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return NavbarBrand; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return NavbarToggler; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return Nav; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return NavItem; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return Container; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return Row; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return Col; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return Navbar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return NavbarBrand; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return NavbarToggler; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return Nav; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return NavItem; });
 /* unused harmony export NavDropdown */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return NavLink; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return NavLink; });
 /* unused harmony export Breadcrumb */
 /* unused harmony export BreadcrumbItem */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Button; });
@@ -25268,9 +25287,9 @@ function warning(message) {
 /* unused harmony export CarouselItem */
 /* unused harmony export CarouselIndicators */
 /* unused harmony export CarouselCaption */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return CardSubtitle; });
+/* unused harmony export CardSubtitle */
 /* unused harmony export CardText */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return CardTitle; });
+/* unused harmony export CardTitle */
 /* unused harmony export Popover */
 /* unused harmony export PopoverContent */
 /* unused harmony export PopoverBody */
@@ -25286,17 +25305,17 @@ function warning(message) {
 /* unused harmony export Tooltip */
 /* unused harmony export Table */
 /* unused harmony export ListGroup */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return Form; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return Form; });
 /* unused harmony export FormFeedback */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return FormGroup; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return FormGroup; });
 /* unused harmony export FormText */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return Input; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return Input; });
 /* unused harmony export InputGroup */
 /* unused harmony export InputGroupAddon */
 /* unused harmony export InputGroupButton */
 /* unused harmony export InputGroupButtonDropdown */
 /* unused harmony export InputGroupText */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return Label; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return Label; });
 /* unused harmony export CustomInput */
 /* unused harmony export Media */
 /* unused harmony export Pagination */
@@ -25305,7 +25324,7 @@ function warning(message) {
 /* unused harmony export TabContent */
 /* unused harmony export TabPane */
 /* unused harmony export Jumbotron */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return Collapse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return Collapse; });
 /* unused harmony export ListGroupItem */
 /* unused harmony export ListGroupItemText */
 /* unused harmony export ListGroupItemHeading */
@@ -32057,12 +32076,12 @@ if ("development" !== 'production' && typeof isCrushed.name === 'string' && isCr
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* unused harmony export css */
 /* unused harmony export keyframes */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return injectGlobal; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return injectGlobal; });
 /* unused harmony export isStyledComponent */
 /* unused harmony export consolidateStreamedStyles */
 /* unused harmony export ThemeProvider */
 /* unused harmony export withTheme */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ServerStyleSheet; });
+/* unused harmony export ServerStyleSheet */
 /* unused harmony export StyleSheetManager */
 /* unused harmony export __DO_NOT_USE_OR_YOU_WILL_BE_HAUNTED_BY_SPOOKY_GHOSTS */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_is_plain_object__ = __webpack_require__("./node_modules/is-plain-object/index.js");
@@ -34367,7 +34386,7 @@ var injectGlobal = _injectGlobal(stringifyRules, css);
 var styled = _styled(StyledComponent, constructWithOptions);
 
 
-/* harmony default export */ __webpack_exports__["b"] = (styled);
+/* harmony default export */ __webpack_exports__["a"] = (styled);
 //# sourceMappingURL=styled-components.browser.es.js.map
 
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/process/browser.js")))
@@ -36203,11 +36222,11 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 
 
-var Margin = __WEBPACK_IMPORTED_MODULE_1_styled_components__["b" /* default */].div.withConfig({
+var Margin = __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div.withConfig({
   displayName: "alarm__Margin",
   componentId: "s1llqvtq-0"
 })(["margin-top:7vh;"]);
-var icontSize = __WEBPACK_IMPORTED_MODULE_1_styled_components__["b" /* default */].i.withConfig({
+var icontSize = __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].i.withConfig({
   displayName: "alarm__icontSize",
   componentId: "s1llqvtq-1"
 })(["font-size:40px;"]);
@@ -36284,12 +36303,12 @@ function (_React$Component) {
           fileName: _jsxFileName,
           lineNumber: 60
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["t" /* Row */], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["r" /* Row */], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 61
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["g" /* Col */], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["e" /* Col */], {
         md: {
           size: 6,
           offset: 3
@@ -36338,36 +36357,36 @@ function (_React$Component) {
           fileName: _jsxFileName,
           lineNumber: 72
         }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["j" /* Form */], {
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["h" /* Form */], {
         method: "post",
         onSubmit: this.setAlarm,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 73
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["t" /* Row */], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["r" /* Row */], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 74
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["g" /* Col */], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["e" /* Col */], {
         md: "6",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 75
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["k" /* FormGroup */], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["i" /* FormGroup */], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 76
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["m" /* Label */], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["k" /* Label */], {
         "for": "username",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 77
         }
-      }, "Date"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["l" /* Input */], {
+      }, "Date"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["j" /* Input */], {
         type: "date",
         name: "date",
         id: "date",
@@ -36379,24 +36398,24 @@ function (_React$Component) {
           fileName: _jsxFileName,
           lineNumber: 78
         }
-      }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["g" /* Col */], {
+      }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["e" /* Col */], {
         md: "6",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 85
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["k" /* FormGroup */], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["i" /* FormGroup */], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 86
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["m" /* Label */], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["k" /* Label */], {
         "for": "username",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 87
         }
-      }, "Time"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["l" /* Input */], {
+      }, "Time"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_reactstrap__["j" /* Input */], {
         type: "time",
         name: "date",
         id: "date",
@@ -36669,7 +36688,7 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 
 /***/ }),
 
-/***/ 7:
+/***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/alarm.js");
@@ -36677,7 +36696,7 @@ module.exports = __webpack_require__("./pages/alarm.js");
 
 /***/ })
 
-},[7])
+},[5])
           return { page: comp.default }
         })
       ;

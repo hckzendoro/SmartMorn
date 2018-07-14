@@ -78,10 +78,11 @@ class NavApp extends React.Component {
       isOpen: false
     };
 	}
-	logout() {
-		localStorage.removeItem('SmartMornKey');
-		Router.push('/login');
-	}
+	// logout() {
+	// 	console.log('work')
+	// 	localStorage.removeItem('SmartMornKey');
+	// 	Router.push('/login');
+	// }
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
@@ -117,9 +118,9 @@ class NavApp extends React.Component {
 				</Nav>
 				<Nav className="navbar-nav my-2 my-lg-0" navbar>
 					<NavItem>
-						{/* <Link href="/login" activeClassName=""> */}
-							<NavLink onClick={this.logout }>LOGOUT</NavLink>
-						{/* </Link> */}
+						<Link href="/logout" activeClassName="active"> 
+							<NavLink>LOGOUT</NavLink>
+						</Link>
 					</NavItem>
 				</Nav>
 			</Collapse>

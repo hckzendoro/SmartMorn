@@ -23,6 +23,7 @@ exports.default = function (command) {
     var parameter = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
     var returnVal = arguments[2];
 
+
     pool.getConnection(function (error, connection) {
         if (error) return {
             'code': 100,

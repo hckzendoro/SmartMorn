@@ -791,7 +791,7 @@ var actions = {
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_0_redux__["combineReducers"])({
   auth: __WEBPACK_IMPORTED_MODULE_1__auth__["a" /* default */],
   alarm: __WEBPACK_IMPORTED_MODULE_2__alarm__["b" /* default */],
-  sleep: __WEBPACK_IMPORTED_MODULE_3__sleepSession__["b" /* default */],
+  sleep: __WEBPACK_IMPORTED_MODULE_3__sleepSession__["a" /* default */],
   dashboard: __WEBPACK_IMPORTED_MODULE_4__dashboard__["a" /* default */],
   adjustment: __WEBPACK_IMPORTED_MODULE_5__adjustment__["b" /* default */]
 }));
@@ -802,7 +802,7 @@ var actions = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return actions; });
+/* unused harmony export actions */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__("lodash");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_api__ = __webpack_require__("./utils/api.js");
@@ -823,7 +823,7 @@ var initialState = {
   error: '',
   message: ''
 };
-/* harmony default export */ __webpack_exports__["b"] = (function () {
+/* harmony default export */ __webpack_exports__["a"] = (function () {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
   var action = arguments.length > 1 ? arguments[1] : undefined;
 

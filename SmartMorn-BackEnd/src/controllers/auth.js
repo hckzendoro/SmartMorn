@@ -7,7 +7,7 @@ export const login = (req,res) => {
     let password = req.body.password;
 
     db('SELECT * FROM `userinfo` WHERE `username` = ? and `password` = ?',[ username, md5(password) ],(returnData) => {
-        console.log(returnData);
+
         if(returnData.length > 0) {
             const token = jwt.sign({ userID: returnData[0].id },'SuperHeroLOL',{ expiresIn: '24h' });
             res.json({
@@ -31,7 +31,6 @@ export const register = (req,res) => {
     let birthDay = req.body.birthday;
 
     db('SELECT * FROM `userinfo` WHERE `username` = ? ',[ username ],(returnCheckExist) => {
-        console.log(returnCheckExist)
         if(returnCheckExist.length == 0) {
           
             db("INSERT INTO `userinfo` SET ?",{ 
@@ -40,7 +39,6 @@ export const register = (req,res) => {
                 birthday: birthDay,
                 gender: gender
             },(error,returnData) => {
-                console.log(returnData)
                 res.json({
                     error: false,
                     message: 'Register Success',
