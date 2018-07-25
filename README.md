@@ -1,5 +1,8 @@
 # SmartMorn V.1
 
+* You should install all dependency by **yarn install** 
+* First you must go to each project folders SmartMorn-BackEnd,SmartMorn-FrontEnd and then type the command **yarn install**
+
 ## Dependency
 These modules must be installed globally
 * babel-node
