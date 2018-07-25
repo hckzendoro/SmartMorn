@@ -5,7 +5,11 @@ export const login = (req,res) => {
 
     let username = req.body.username;
     let password = req.body.password;
-
+    if(!(username != undefined && password != undefined))
+        return res.json({
+            error: true,
+            message: 'Invalid'
+        })
     db('SELECT * FROM `userinfo` WHERE `username` = ? and `password` = ?',[ username, md5(password) ],(returnData) => {
 
         if(returnData.length > 0) {
@@ -29,7 +33,11 @@ export const register = (req,res) => {
     let password = req.body.password;
     let gender = req.body.gender;
     let birthDay = req.body.birthday;
-
+    if(!(username != undefined && password != undefined && gender != undefined && birthDay != undefined))
+        return res.json({
+            error: true,
+            message: 'Invalid'
+        })
     db('SELECT * FROM `userinfo` WHERE `username` = ? ',[ username ],(returnCheckExist) => {
         if(returnCheckExist.length == 0) {
           

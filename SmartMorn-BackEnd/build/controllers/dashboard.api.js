@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.pie2 = exports.pie1 = exports.graph = undefined;
+exports.dashboard = undefined;
 
 var _jsonwebtoken = require('jsonwebtoken');
 
@@ -17,54 +17,77 @@ var _md = require('md5');
 
 var _md2 = _interopRequireDefault(_md);
 
+var _lodash = require('lodash');
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+var _moment = require('moment');
+
+var _moment2 = _interopRequireDefault(_moment);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var graph = exports.graph = function graph(req, res) {
-  res.json({
-    labels: ['21.00', '21.30', '22.00', '22.30', '23.00', '23.30', '00.00'],
-    datasets: [{
-      label: 'Sleep Score',
-      fill: false,
-      lineTension: 0.2,
-      backgroundColor: 'rgba(75,192,192,0.4)',
-      borderColor: 'rgba(75,192,192,1)',
-      borderCapStyle: 'butt',
-      borderDash: [],
-      borderDashOffset: 0.0,
-      borderJoinStyle: 'miter',
-      pointBorderColor: 'rgba(75,192,192,1)',
-      pointBackgroundColor: '#fff',
-      pointBorderWidth: 1,
-      pointHoverRadius: 5,
-      pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-      pointHoverBorderColor: 'rgba(220,220,220,1)',
-      pointHoverBorderWidth: 2,
-      pointRadius: 1,
-      pointHitRadius: 10,
-      data: [65, 59, 80, 81, 56, 55, 40]
-    }]
-  });
-};
+var bestTemp = 20;
 
-var pie1 = exports.pie1 = function pie1(req, res) {
-  res.json({
-    labels: ['Red', 'Green', 'Yellow'],
-    datasets: [{
-      data: [300, 50, 100],
-      backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-      hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
-    }]
-  });
+Array.prototype.groupBy = function (prop) {
+  return this.reduce(function (groups, item) {
+    var val = item[prop];
+    groups[val] = groups[val] || [];
+    groups[val].push(item);
+    return groups;
+  }, {});
 };
+var dashboard = exports.dashboard = function dashboard(req, res) {
+  var token = req.headers['x-access-token'];
+  try {
+    var user = _jsonwebtoken2.default.verify(token, 'SuperHeroLOL');
+  } catch (error) {
+    return res.json({
+      error: true,
+      message: 'Not allow'
+    });
+  }
 
-var pie2 = exports.pie2 = function pie2(req, res) {
-  res.json({
-    labels: ['Red', 'Green', 'Yellow'],
-    datasets: [{
-      data: [300, 50, 100],
-      backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-      hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
-    }]
+  (0, _database2.default)('SELECT * FROM `config` WHERE `userID` = ?', [user.userID], function (returnDataConfig) {
+    (0, _database2.default)('SELECT *,UNIX_TIMESTAMP(time) AS time_unix FROM `sensordata`', [], function (returnData) {
+
+      var result = _lodash2.default.countBy(returnData, 'temperature');
+      var count = 0;
+      Object.keys(result).forEach(function (ele) {
+        count += result[ele];
+      });
+      var temp = {
+        perfect: 0,
+        hot: 0,
+        cold: 0
+      };
+
+      // cal percentage 
+      Object.keys(result).forEach(function (ele) {
+        if (ele >= 20 && ele <= 27) {
+          temp.perfect += result[ele] / count * 100;
+        } else if (ele > 27) {
+          temp.hot += result[ele] / count * 100;
+        } else if (ele < 20) {
+          temp.cold += result[ele] / count * 100;
+        }
+      });
+      var date = new Date(Date.now());
+      date = date.getMonth() + 1 + '/' + date.getDate() + '/' + date.getFullYear() + ' ' + (date.getHours() > 12 ? date.getHours() - 12 : date.getHours()) + ':' + date.getMinutes() + ' ' + (date.getHours() >= 12 ? "PM" : "AM");
+      res.json({
+        error: false,
+        time: date,
+        alarm: (0, _moment2.default)(returnDataConfig[0].alarm).format('MM/DD/YYYY h:mm'),
+        tempPie: {
+          labels: ['Too Hot', 'Too Cold', 'Perfect'],
+          datasets: [{
+            data: [temp.hot, temp.cold, temp.perfect],
+            backgroundColor: ['#f90230', '#00a1ff', '#4caf50'],
+            hoverBackgroundColor: ['#f90230', '#00a1ff', '#4caf50']
+          }]
+        }
+      });
+    });
   });
 };
 //# sourceMappingURL=dashboard.api.js.map

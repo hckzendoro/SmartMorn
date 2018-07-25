@@ -28,7 +28,23 @@ exports.default = function (app) {
 		});
 		client.on('messageType', function (data) {
 			console.log(data);
+
 			client.emit('messages', 'Hello from server');
+		});
+		//{ temp: 25.94866, motion: 1, sleep: 0 }
+
+		client.on('info', function (data) {
+
+			(0, _database2.default)("INSERT INTO `sensordata` SET ?", {
+				userID: 1,
+				temperature: data.temp,
+				pressure: data.sleep,
+				motion: data.motion,
+				time: require('moment')().format('YYYY-MM-DD HH:mm:ss')
+			}, function (error, returnData) {
+				console.log('save data ok!');
+			});
+			console.log(data);
 		});
 	});
 
@@ -37,6 +53,13 @@ exports.default = function (app) {
 		res.json({
 			error: false,
 			message: 'adjustment_on success'
+		});
+	});
+	app.get('/api/v1/getinfo', function (req, res) {
+		io.emit('messageType', 'getinfo');
+		res.json({
+			error: false,
+			message: 'getinfo success'
 		});
 	});
 	app.get('/api/v1/adjustment/off', function (req, res) {
@@ -67,6 +90,9 @@ exports.default = function (app) {
 				(0, _database2.default)('UPDATE `config` SET `activeAlarm` = ? ', [returnData[0].alarm], function (returnUpdate) {
 					console.log('start emit');
 					io.emit('messageType', 'alarm_on');
+					setTimeout(function () {
+						io.emit('messageType', 'alarm_off');
+					}, 60000);
 					time = setTimeout(tmpFuc, 5000);
 				});
 			} else {

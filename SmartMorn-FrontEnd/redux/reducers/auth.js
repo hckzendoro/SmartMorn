@@ -7,7 +7,7 @@ const App = 'SMARTMORN';
 
 const ACTION_AUTH_LOGIN = defineAction('AUTH_LOGIN', ['PENDING', 'RESOLVED', 'REJECTED','CLEAR'], App);
 const ACTION_AUTH_REGISTER = defineAction('AUTH_REGISTER', ['PENDING', 'RESOLVED', 'REJECTED','CLEAR'], App);
-console.log(ACTION_AUTH_REGISTER);
+
 const initialState = {
     isLogin: false,
     loading: false,
@@ -75,7 +75,7 @@ export const actions = {
         dispatch({
             type: ACTION_AUTH_LOGIN.PENDING
         })
-        axios().post('/users/login',{
+        axios().post("/users/login",{
             username: username,
             password: password
         }).then((resp) => {
@@ -89,6 +89,7 @@ export const actions = {
                 });
                 
             } else {
+                
                 return dispatch({ 
                     type: ACTION_AUTH_LOGIN.REJECTED,
                     payload: {
@@ -97,6 +98,7 @@ export const actions = {
                 });
             }
         }).catch((error) => {
+            console.log(error);
             return dispatch({ 
                 type: ACTION_AUTH_LOGIN.REJECTED,
                 payload: {

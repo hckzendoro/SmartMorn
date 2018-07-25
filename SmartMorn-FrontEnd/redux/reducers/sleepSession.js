@@ -6,7 +6,7 @@ import { defineAction } from 'redux-define';
 const App = 'SMARTMORN';
 
 const ACTION_AUTH_SLEEP = defineAction('AUTH_SLEEP', ['PENDING', 'RESOLVED', 'REJECTED','CLEAR'], App);
-console.log(ACTION_AUTH_SLEEP);
+
 
 const initialState = {
     loading: false,

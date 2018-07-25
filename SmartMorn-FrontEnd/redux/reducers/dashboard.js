@@ -6,12 +6,13 @@ import { defineAction } from 'redux-define';
 const App = 'SMARTMORN';
 
 const ACTION_AUTH_DASH = defineAction('AUTH_DASH', ['PENDING', 'RESOLVED', 'REJECTED','CLEAR'], App);
-console.log(ACTION_AUTH_DASH);
+
 
 const initialState = {
     loading: false,
     error: '',
-    message: ''
+    message: '',
+    dashboardData: []
 };
 
 export default (state = initialState, action) => {
@@ -20,7 +21,8 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 error: false,
-                message: action.payload.message
+                message: action.payload.message,
+                dashboardData: action.payload.data
             };
         case ACTION_AUTH_DASH.PENDING: 
             return {
@@ -46,16 +48,14 @@ export const actions = {
         dispatch({
             type: ACTION_AUTH_DASH.PENDING
         })
-        axios().post('/users/login',{
-            username: username,
-            password: password
-        }).then((resp) => {
+        axios().get('/users/getallinfo').then((resp) => {
             if(!resp.data.error) {
-                window.localStorage.setItem('SmartMornKey', resp.data.token);
+                
                 return dispatch({ 
                     type: ACTION_AUTH_DASH.RESOLVED,
                     payload: {
-                        message: false
+                        message: false,
+                        data: resp.data
                     }
                 });
                 

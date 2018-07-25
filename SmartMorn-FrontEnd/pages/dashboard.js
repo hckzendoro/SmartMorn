@@ -6,7 +6,8 @@ import Link from 'next/link';
 import Router from 'next/router';
 //import { actions as auth  } from '../redux/reducers/auth'
 import { connect } from "react-redux";
-
+import { actions as Dashboards } from '../redux/reducers/dashboard';
+import { bindActionCreators } from 'redux';
 import { 
     Input,
     Row,
@@ -52,52 +53,13 @@ const data = {
       }
     ]
   };
-  const datas = {
-	labels: [
-		'Red',
-		'Green',
-		'Yellow'
-	],
-	datasets: [{
-		data: [300, 50, 100],
-		backgroundColor: [
-		'#FF6384',
-		'#36A2EB',
-		'#FFCE56'
-		],
-		hoverBackgroundColor: [
-		'#FF6384',
-		'#36A2EB',
-		'#FFCE56'
-		]
-	}]
-};
-const datapie = {
-	labels: [
-		'Red',
-		'Green',
-		'Yellow'
-	],
-	datasets: [{
-		data: [300, 50, 100],
-		backgroundColor: [
-		'#FF6384',
-		'#36A2EB',
-		'#FFCE56'
-		],
-		hoverBackgroundColor: [
-		'#FF6384',
-		'#36A2EB',
-		'#FFCE56'
-		]
-	}]
-};
 
 class Dashboard extends React.Component {
     
     constructor(props) {
         super(props);
         this.checkLogin.bind(this);
+       
     }
     checkLogin() {
         const token = localStorage.getItem('SmartMornKey');
@@ -108,17 +70,19 @@ class Dashboard extends React.Component {
     }
     componentDidMount() {
         this.checkLogin();
+        this.props.getAllData();
     }
     render() {
+        console.log(this.props)
         return (
-            <Layout title="SmartMorn V1 - Login" Navbar={true}>
+            <Layout title="SmartMorn V1 - Dashboard" Navbar={true}>
                 <Margin>
                     <Row>
                         <Col md={{ size: 12 }}>
                             <CardCustom>
                                 <CardBody>
-                                    <CardTitle>Alam Set @ 8.30 AM</CardTitle>
-                                    <CardSubtitle>Last Synced  @ 2:32 PM</CardSubtitle>  
+                                    <CardTitle>Alam Set @ {this.props.dashboardData.alarm}</CardTitle>
+                                    <CardSubtitle>Last Synced  @ {this.props.dashboardData.time}</CardSubtitle>
                                     <div align="right">
                                         <Link href="/alarm">
                                             <Button className="btn-outline-success active">Set Alarm</Button>
@@ -129,39 +93,28 @@ class Dashboard extends React.Component {
                         </Col>        
                     </Row>
                     <Row>
-                        <Col md={{ size: 4}}>
+                        <Col md={{ size: 6}}>
                             <CardCustom>
                                 <CardBody>
                                     <CardTitle><b>Today</b></CardTitle>
-                                    <CardSubtitle>Last Synced  @ 2:32 PM</CardSubtitle>
+                                    <CardSubtitle>Last Synced  @ {this.props.dashboardData.time}</CardSubtitle>
                                     <br/>
                                     <Line data={data} />
                                     <br/>
                                 </CardBody>
                             </CardCustom>
                         </Col> 
-                        <Col md={{ size: 4 }}>
+                        <Col md={{ size: 6 }}>
                             <CardCustom>
                                 <CardBody>
                                     <CardTitle>Temperature</CardTitle>
-                                    <CardSubtitle>Last Synced  @ 2:32 PM</CardSubtitle>
+                                    <CardSubtitle>Last Synced  @ {this.props.dashboardData.time}</CardSubtitle>
                                     <br/>
-                                    <Doughnut data={datas} />
+                                    <Doughnut data={this.props.dashboardData.tempPie || { data: null} } />
                                     <br/>
                                 </CardBody>
                             </CardCustom>
                         </Col>    
-                        <Col md={{ size: 4 }}>
-                            <CardCustom>
-                                <CardBody>
-                                    <CardTitle>Noise Detected</CardTitle>
-                                    <CardSubtitle>Last Synced  @ 2:32 PM</CardSubtitle> 
-                                    <br/>
-                                    <Pie data={datapie} />
-                                    <br/>
-                                </CardBody>
-                            </CardCustom>
-                        </Col>      
                     </Row>
                 </Margin>
             </Layout>
@@ -170,11 +123,11 @@ class Dashboard extends React.Component {
 
 }
 const mapStateToProps = ({ dashboard }) => ({
-    
+    dashboardData: dashboard.dashboardData
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    
+    getAllData: bindActionCreators(Dashboards.getData,dispatch),
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(Dashboard);

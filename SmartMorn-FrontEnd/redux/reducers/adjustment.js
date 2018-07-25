@@ -6,7 +6,7 @@ import { defineAction } from 'redux-define';
 const App = 'SMARTMORN';
 
 const ACTION_AUTH_ADJUST = defineAction('AUTH_ADJUST', ['PENDING', 'RESOLVED', 'REJECTED','CLEAR'], App);
-console.log(ACTION_AUTH_ADJUST);
+
 
 const initialState = {
     loading: false,

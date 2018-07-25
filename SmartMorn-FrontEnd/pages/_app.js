@@ -11,9 +11,12 @@ class CustomApp extends App {
             }
         };
     }
-
+    componentDidMount() {
+        console.log('mount');
+    }
     render() {
         const {Component, pageProps, store } = this.props
+        console.log(store);
         return (
             <Provider store={store}>
                 <Component {...pageProps} />

@@ -1,79 +1,69 @@
+@import url(../node_modules/react-datepicker/dist/react-datepicker.css);
 .lead {
-  font-size: 1.4em;
-}
+  font-size: 1.4em; }
 
 pre {
   background-color: #333;
   border-color: #333;
   color: #eee;
   padding: 10px 20px;
-  border-radius: 5px;
-}
+  border-radius: 5px; }
 
 .navbar,
 .navbar .btn,
 .navbar .dropdown-item,
 .navbar button {
-  font-size: 18px;
-}
+  font-size: 18px; }
+
 .react-datepicker__input-container {
   position: relative;
-  display: block !important;
-}
+  display: block !important; }
+
 .react-datepicker-wrapper {
-  display: block !important;
-}
+  display: block !important; }
+
 @media (max-width: 768px) {
   .display-2 {
-    font-size: 3em !important;
-  }
+    font-size: 3em !important; }
   .display-3 {
-    font-size: 2.5em !important;
-  }
+    font-size: 2.5em !important; }
   .display-4 {
-    font-size: 2em !important;
-  }
-}
+    font-size: 2em !important; } }
+
 .bg-primary {
-  background-color: #3f51b5!important;
-}
-.btn.btn-outline-info.active:hover,.btn.btn-outline-info.active:active,.btn.btn-outline-info.active:focus {
-    color: #fff !important;
-    background-color: #059ade !important;
-    border-color: #03a9f4 !important;
-}
-.btn.btn-outline-success.active:hover,.btn.btn-outline-success.active:active {
+  background-color: #3f51b5 !important; }
+
+.btn.btn-outline-info.active:hover, .btn.btn-outline-info.active:active, .btn.btn-outline-info.active:focus {
+  color: #fff !important;
+  background-color: #059ade !important;
+  border-color: #03a9f4 !important; }
+
+.btn.btn-outline-success.active:hover, .btn.btn-outline-success.active:active {
   color: #fff !important;
   background-color: #439846 !important;
-  border-color: #4caf50 !important;
-}
-.btn.btn-outline-warning.active:hover,.btn.btn-outline-warning.active:active {
+  border-color: #4caf50 !important; }
+
+.btn.btn-outline-warning.active:hover, .btn.btn-outline-warning.active:active {
   color: #fff !important;
   background-color: #ff5722 !important;
-  border-color: #ff5722 !important;
-}
-
+  border-color: #ff5722 !important; }
 
 .icon-spin {
   display: inline-block !important;
-  animation: spin 1s infinite linear !important;
-}
+  animation: spin 1s infinite linear !important; }
+
 @keyframes spin {
   0% {
-    transform: rotate(0deg);
-  }
+    transform: rotate(0deg); }
   100% {
-    transform: rotate(359deg);
-  }
-}
+    transform: rotate(359deg); } }
 
 /**
  * This is a fix for Reactstrap 5.0.0-alpha.4 not displaying menus in the 
  * navbar correcrtly on mobile devices.
  **/
 .navbar .dropdown {
-  display: block !important; 
-}
+  display: block !important; }
 
 @media (max-width: 768px) {
   .navbar .dropdown-menu {
@@ -81,9 +71,7 @@ pre {
     display: block !important;
     transform: none !important;
     padding: 0 0 10px 0 !important;
-    border: none !important;
-  }
-}
+    border: none !important; } }
 
 /**
  * Fix for Reactstrap
@@ -91,12 +79,8 @@ pre {
 .react-bs-table-sizePerPage-dropdown .dropdown-item a {
   display: block !important;
   color: #000 !important;
-  text-decoration: none !important;
-}
+  text-decoration: none !important; }
 
 .react-bs-table-sizePerPage-dropdown button {
   background: #fff !important;
-  color: #000 !important;
-}
-
-
+  color: #000 !important; }

@@ -1,10 +1,14 @@
 import axios from 'axios';
 
+let apiLocation = 'http://172.20.10.6:8081/api/v1';
 export default () => axios.create({
-        baseURL: 'http://localhost:8081/api/v1/',
+        baseURL: apiLocation,
+        withCredentials: true,
         headers: {
-            'x-access-token': localStorage.getItem('SmartMornKey') || ''
-        }
+            'x-access-token': localStorage.getItem('SmartMornKey') || '',
+            'X-Requested-With': XMLHttpRequest
+        },
+        adapter: require('axios/lib/adapters/http')
     });
 
 // const handleResponse = (response) => {

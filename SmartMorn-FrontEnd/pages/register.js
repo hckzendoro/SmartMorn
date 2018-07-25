@@ -6,6 +6,9 @@ import { actions as auth  } from '../redux/reducers/auth'
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 import Router from 'next/router';
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
+import datePickerStyle from 'react-datepicker/dist/react-datepicker.css';
 import {
     Form,
     FormGroup,
@@ -41,8 +44,8 @@ class Register extends Component {
             confirmPassword: '',
             birthday: '',
             gender: 'Male',
+            startDate: moment()
         }
-        
     }
     
     register = () => (e)  => {
@@ -50,20 +53,31 @@ class Register extends Component {
         this.props.register(this.state);
     }
     handleChange = (field) => (e) => {
-        this.setState({
-            [field]: e.target.value
-        })
+        if(field == 'birthday') {
+            this.setState({
+                [field]: moment(e).format('DD-MM-YYYY')
+            })
+        } else {
+            this.setState({
+                [field]: e.target.value
+            })
+        }
     }
     componentDidMount() {
         this.props.clearMessageRegister();
+        if(this.props.errorMessage && !(this.props.error))
+            Router.push('/login');
     }
 	render() {
        
 		return (
 		<Layout title="SmartMorn V1 - Register" Navbar="false">
+            <style global jsx>
+				{datePickerStyle}
+			</style>
             <MarginTop>
                 <Row>
-                    <Col md="3" md={{ size: 4, offset: 4 }}>
+                    <Col md="4" md={{ size: 4, offset: 4 }}>
                         <MarginBottom>
                             <center>
                                 <img src="static/images/smartmornlogo.png" width="300"/>
@@ -98,12 +112,13 @@ class Register extends Component {
                                         value={this.state.confirmPassword}
                                         required="true"/>
                                     </FormGroup>
+                                    
                                     <FormGroup>
-                                        <Label for="confirm_password">BirthDay</Label>
-                                        <Input type="date" name="birthday" id="birthday" placeholder=""
-                                         onChange={this.handleChange('birthday')}
-                                         value={this.state.birthday}
-                                        required="true"/>
+                                        <Label for="birthday">Birthday</Label>
+                                        <DatePicker
+                                            className="form-control" selected={this.state.startDate}
+                                            onChange={this.handleChange('birthday')}
+                                        />
                                     </FormGroup>
                                     <FormGroup>
                                         <Label for="gender">Gender</Label>

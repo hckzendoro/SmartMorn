@@ -23,7 +23,10 @@ var login = exports.login = function login(req, res) {
 
     var username = req.body.username;
     var password = req.body.password;
-
+    if (!(username != undefined && password != undefined)) return res.json({
+        error: true,
+        message: 'Invalid'
+    });
     (0, _database2.default)('SELECT * FROM `userinfo` WHERE `username` = ? and `password` = ?', [username, (0, _md2.default)(password)], function (returnData) {
 
         if (returnData.length > 0) {
@@ -47,7 +50,10 @@ var register = exports.register = function register(req, res) {
     var password = req.body.password;
     var gender = req.body.gender;
     var birthDay = req.body.birthday;
-
+    if (!(username != undefined && password != undefined && gender != undefined && birthDay != undefined)) return res.json({
+        error: true,
+        message: 'Invalid'
+    });
     (0, _database2.default)('SELECT * FROM `userinfo` WHERE `username` = ? ', [username], function (returnCheckExist) {
         if (returnCheckExist.length == 0) {
 

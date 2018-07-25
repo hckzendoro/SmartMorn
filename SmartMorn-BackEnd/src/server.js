@@ -13,11 +13,18 @@ require('events').EventEmitter.defaultMaxListeners = 0;
 const app = express();
 
 app.use(cors({
-	'origin': '*',
+	'origin': 'http://172.20.10.6:3000',
 	'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
-	'preflightContinue': false
+	'preflightContinue': false,
+	'allowedHeaders': ['X-Requested-With','x-access-token','Content-Type'],
+	'credentials': true,
+	'maxAge': 5
 }));
-
+const HeadeMiddleware = (req,res,next) => {
+	res.header("X-Frame-Options", "deny");
+	next()
+}
+app.use(HeadeMiddleware);
 app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded( { extended: true }));

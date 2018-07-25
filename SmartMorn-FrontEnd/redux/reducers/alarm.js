@@ -6,7 +6,8 @@ import { defineAction } from 'redux-define';
 const App = 'SMARTMORN';
 
 const ACTION_AUTH_ALARM = defineAction('AUTH_ALARM', ['PENDING', 'RESOLVED', 'REJECTED','CLEAR'], App);
-console.log(ACTION_AUTH_ALARM);
+
+
 
 const initialState = {
     loading: false,

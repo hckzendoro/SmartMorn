@@ -43,21 +43,28 @@ require('events').EventEmitter.defaultMaxListeners = 0;
 var app = (0, _express2.default)();
 
 app.use((0, _cors2.default)({
-  'origin': '*',
-  'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  'preflightContinue': false
+	'origin': 'http://172.20.10.6:3000',
+	'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+	'preflightContinue': false,
+	'allowedHeaders': ['X-Requested-With', 'x-access-token', 'Content-Type'],
+	'credentials': true,
+	'maxAge': 5
 }));
-
+var HeadeMiddleware = function HeadeMiddleware(req, res, next) {
+	res.header("X-Frame-Options", "deny");
+	next();
+};
+app.use(HeadeMiddleware);
 app.use((0, _compression2.default)());
 app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({ extended: true }));
 
 app.use((0, _cookieParser2.default)());
 app.use((0, _expressSession2.default)({
-  resave: true,
-  saveUninitialized: true,
-  secret: process.env.SESSION_SECRET || 'SESSION_SECRET',
-  cookie: { maxAge: 60000 }
+	resave: true,
+	saveUninitialized: true,
+	secret: process.env.SESSION_SECRET || 'SESSION_SECRET',
+	cookie: { maxAge: 60000 }
 }));
 
 app.use((0, _morgan2.default)('dev'));
@@ -66,7 +73,7 @@ app.use(_express2.default.static('public'));
 app.use('/', _routes2.default);
 
 app.listen(8081, function () {
-  console.log('listen on port : 8081');
+	console.log('listen on port : 8081');
 });
 
 (0, _socket2.default)(app);

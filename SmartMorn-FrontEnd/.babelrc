@@ -4,8 +4,14 @@
   	],
   	"plugins": [
     	"transform-decorators-legacy",
-    	["styled-components", {
-      		"ssr": true
-    	}]
+    
+		["babel-plugin-styled-components", {
+			"minify": true,
+			"ssr": true
+		}],
+		["inline-import",{
+			  "extensions": [".css"]
+			}
+		]
   	]
 }
