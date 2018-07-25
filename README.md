@@ -1,5 +1,5 @@
 # SmartMorn V.1
-ี
+
 ## Dependency
 These modules must be installed globally
 * babel-node
