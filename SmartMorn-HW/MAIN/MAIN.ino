@@ -213,7 +213,7 @@ void setup()
   WiFi.disconnect(true);
   WiFi.setAutoConnect(false);
   WiFi.setPhyMode(WIFI_PHY_MODE_11G);
-  WiFiMulti.addAP("Zendoro", "123456789za");
+  WiFiMulti.addAP("SSID NAME HERE", "PASSWORD HERE");
 
   while (WiFiMulti.run() != WL_CONNECTED) {
     delay(100);
